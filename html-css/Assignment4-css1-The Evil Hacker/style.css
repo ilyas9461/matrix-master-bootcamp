@@ -4,9 +4,6 @@
   margin: 5px;
   padding: 5px;
 }
-.box{
-  display: inline-block;
-}
 #container {
   width: 950px;
   background-color: silver;
@@ -15,6 +12,12 @@
 #header {
   height: 150px;
   background-color: blue; 
+}
+.box{
+  display: inline-block;
+}
+.main{
+  display: flex;
 }
 #nav_bar {
   height: 360px;
