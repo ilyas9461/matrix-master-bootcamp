@@ -21,8 +21,8 @@
     width: 100%; 
     max-width: 500px;
   }
-  .right-menu > a{
-    font-size: 15px;
+  .right-menu a{
+    font-size: 14px;
   }
   
   .link {
