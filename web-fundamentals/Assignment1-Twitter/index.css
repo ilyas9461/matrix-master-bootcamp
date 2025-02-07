@@ -55,12 +55,12 @@ img {
   background-color: white;
   width: 30px;
 }
-.line-or-container {
-  margin: 3px auto;
+.line-container {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 50%;
+  margin: 3px auto;
 }
 .line {
   flex-grow: 1;
