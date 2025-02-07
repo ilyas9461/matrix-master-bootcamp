@@ -43,7 +43,7 @@ label input:checked + .checkbox {
 }
 
 label input:checked + .checkbox .check-btn {
-  left: 65px;
+  left: 65px; /* end position.*/
   background-color: whitesmoke;
 }
 
