@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: beige;
+  border: black 3px solid;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.checkbox { /* div*/
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  background-color: #ddd;
+  border: gray 1px solid;
+  border-radius: 40px;
+  position: relative; /*check btn inside checkbox*/
+  transform: 500ms background-color;
+}
+
+.checkbox .check-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: tomato;
+  /* display: inline-block; */
+  position: absolute;
+  top: 5px;
+  left: 5px; /* start position */
+  cursor: pointer;
+  transition: 500ms left, 500ms background-color;
+}
+
+label input:checked + .checkbox {
+  background-color: tomato;
+}
+
+label input:checked + .checkbox .check-btn {
+  left: 65px;
+  background-color: whitesmoke;
+}
+
+label input {
+  display: none;
+}
