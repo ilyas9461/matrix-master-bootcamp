@@ -80,6 +80,12 @@ label {
 .middle-article .down-img {
     width: 60px;
 }
+.fa-icons {
+    display: inline;
+    width: 14px;
+    font-size: 10px;
+    cursor: pointer;
+  }
 
 .rigth-article {
     display: flex;
