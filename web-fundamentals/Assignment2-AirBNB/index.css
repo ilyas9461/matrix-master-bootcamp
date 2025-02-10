@@ -5,15 +5,11 @@
     font-family: "Times New Roman", Times, serif;
 }
 
-/* .html, body{
-    background-color: black;
-    padding: 20px;
-} */
 .container {
     margin: auto;
     width: 1000px;
     padding: 20px;
-    background-color: aliceblue;
+    background-color: white;
 }
 
 .container>ul {
