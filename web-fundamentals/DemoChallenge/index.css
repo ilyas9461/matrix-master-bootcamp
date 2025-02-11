@@ -66,7 +66,8 @@ header {
   margin-right: 1px;
   position: relative;
   transition: all 0.2s ease-in-out;
-  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), inset -2px -2px 4px rgba(0, 0, 0, 0.3), 4px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), 
+              inset -2px -2px 4px rgba(0, 0, 0, 0.3), 4px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Active tab with a lifted 3D effect */
@@ -74,13 +75,15 @@ header {
   background: linear-gradient(145deg, #4c75aa, #5a89c3);
   top: -39px;
   padding-bottom: 15px;
-  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), inset -2px -2px 4px rgba(0, 0, 0, 0.3), 4px 4px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), 
+              inset -2px -2px 4px rgba(0, 0, 0, 0.3), 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Hover effect */
 .tab:hover {
   background: linear-gradient(145deg, #3a67a5, #4a79c0);
-  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), inset -2px -2px 4px rgba(0, 0, 0, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), 
+              inset -2px -2px 4px rgba(0, 0, 0, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 /* Main section */
