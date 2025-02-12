@@ -1,6 +1,6 @@
 <h1 align="center">Front End Challenge - Linkedin</h1>
 
-# Please make sure you follow the guidelines:
+## Please make sure you follow the guidelines:
 
 - Indent your code
 - Validate your HTML
