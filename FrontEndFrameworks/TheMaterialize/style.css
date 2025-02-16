@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+main {
+    width: 65%;
+    height: 100%;
+    margin: auto;
+  }
+  section,nav {
+    margin: 40px 0px;
+  }
