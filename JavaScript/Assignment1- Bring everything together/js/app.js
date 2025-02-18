@@ -57,9 +57,7 @@ const tableRefresh=()=>{
     getTableRows.forEach((el, index)=>{
         el.addEventListener('click', e=>{
             // console.log(e.target, index);
-            // console.log(getTableRows);
             if(String(e.target.textContent).includes('🗑️') ){
-                // console.log('delete');
                 tableRows.splice(index-1, 1)
                 addTableToHTML(addTableRows(tableRows))
                 tableRefresh()  
@@ -98,8 +96,6 @@ addBtn.addEventListener('click', () => {
         editIndex=-1
     }else  tableRows.push(tableData)
 
-    // console.log('tableData :',tableData);
-    // console.log('tableRows :',tableRows);
     fname.value=lname.value=age.value=city.value=''
 
     addTableToHTML(addTableRows(tableRows))  
