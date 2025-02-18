@@ -1,3 +1,4 @@
+/* Constants and variables */
 const tHeaders=['First Name', 'Last Name', 'Age','City'];
 
 let fname = document.getElementsByName("fname")[0];
@@ -13,6 +14,7 @@ let tableRows=[] // reset array
 let editIndex=-1
 let isEdit=false
 
+/* Functions */
 const addTableHeaders = (tHeadersArr) => {
     const tHeaders = String(`
     <tr>
@@ -76,6 +78,7 @@ const tableRefresh=()=>{
     })
 }
 
+/* Main */
 addTableToHTML('')
 
 addBtn.addEventListener('click', () => { 
