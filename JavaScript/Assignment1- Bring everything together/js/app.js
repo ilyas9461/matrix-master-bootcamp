@@ -94,6 +94,8 @@ addBtn.addEventListener('click', () => {
 
     if(isEdit){
         tableRows[editIndex]=tableData
+        isEdit=false
+        editIndex=-1
     }else  tableRows.push(tableData)
 
     // console.log('tableData :',tableData);
