@@ -1,18 +1,18 @@
 /* Constants and variables */
-const tHeaders=['First Name', 'Last Name', 'Age','City'];
+const tHeaders = ['First Name', 'Last Name', 'Age', 'City'];
 
 let fname = document.getElementsByName("fname")[0];
-let lname =document.getElementsByName("lname")[0];
-let age =document.getElementsByName("age")[0];
-let city =document.getElementsByName("city")[0];
+let lname = document.getElementsByName("lname")[0];
+let age = document.getElementsByName("age")[0];
+let city = document.getElementsByName("city")[0];
 
 let addBtn = document.getElementsByTagName('button')[0];
-let table=document.querySelector('.table')
+let table = document.querySelector('.table')
 
-let tableData={} // reset object
-let tableRows=[] // reset array 
-let editIndex=-1
-let isEdit=false
+let tableData = {} // reset object
+let tableRows = [] // reset array 
+let editIndex = -1
+let isEdit = false
 
 /* Functions */
 const addTableHeaders = (tHeadersArr) => {
@@ -22,17 +22,17 @@ const addTableHeaders = (tHeadersArr) => {
         <th>#</th>  
         <th>#</th>   
         ${tHeadersArr.map(el => {
-            return ('<th>' + el + '</th>')
-        }).join('')}
+        return ('<th>' + el + '</th>')
+    }).join('')}
     </tr>`)
     return tHeaders
 }
 
-const addTableRows=(rows=[])=>{
-    let allRow=''
+const addTableRows = (rows = []) => {
+    let allRow = ''
     rows.forEach((el, index) => {
         // console.log(el,index);      //🗑️   
-        allRow+= `<tr id="${index}">
+        allRow += `<tr id="${index}">
                     <td>${index + 1}</td>
                     <td>🗑️</td> 
                     <td>🖊️</td>
@@ -45,35 +45,35 @@ const addTableRows=(rows=[])=>{
     return allRow
 }
 
-const addTableToHTML=(rows='')=>{
+const addTableToHTML = (rows = '') => {
     // console.log(rows);    
-    table.innerHTML=`
+    table.innerHTML = `
         <table  class="my-table">
            ${addTableHeaders(tHeaders)}
            ${rows}
-        </table> `    
+        </table> `
 }
 
-const tableRefresh=()=>{
-    const getTableRows=document.querySelectorAll("tr"); 
-    getTableRows.forEach((el, index)=>{
-        el.addEventListener('click', e=>{
+const tableRefresh = () => {
+    const getTableRows = document.querySelectorAll("tr");
+    getTableRows.forEach((el, index) => {
+        el.addEventListener('click', e => {
             // console.log(e.target, index);
-            if(String(e.target.textContent).includes('🗑️') ){
-                tableRows.splice(index-1, 1)
+            if (String(e.target.textContent).includes('🗑️')) {
+                tableRows.splice(index - 1, 1)
                 addTableToHTML(addTableRows(tableRows))
-                tableRefresh()  
-            } 
-            if(String(e.target.textContent).includes('🖊️') ){
+                tableRefresh()
+            }
+            if (String(e.target.textContent).includes('🖊️')) {
                 // console.log('Edit', tableRows[index-1]);
-                editIndex=index-1
-                fname.value=tableRows[editIndex].fname
-                lname.value=tableRows[editIndex].lname
-                age.value=tableRows[editIndex].age
-                city.value=tableRows[editIndex].city
-                isEdit=true
-                
-            }          
+                editIndex = index - 1
+                fname.value = tableRows[editIndex].fname
+                lname.value = tableRows[editIndex].lname
+                age.value = tableRows[editIndex].age
+                city.value = tableRows[editIndex].city
+                isEdit = true
+
+            }
         })
     })
 }
@@ -81,37 +81,28 @@ const tableRefresh=()=>{
 /* Main */
 addTableToHTML('')
 
-addBtn.addEventListener('click', () => { 
+addBtn.addEventListener('click', () => {
 
-    tableData.fname=fname.value;
-    tableData.lname=lname.value;
-    tableData.age=age.value;
-    tableData.city=city.value;
+    tableData.fname = fname.value;
+    tableData.lname = lname.value;
+    tableData.age = age.value;
+    tableData.city = city.value;
 
-    if(fname.value.length< 3 || lname.value.length<3 || city.value.length <3 || isNaN(age.value)) {
+    if (fname.value.length < 3 || lname.value.length < 3 || city.value.length < 3 || isNaN(age.value)) {
         alert("At least 3 characters or age=number are necessary!");
         return;
     }
 
-    if(isEdit){
-        tableRows[editIndex]=tableData
-        isEdit=false
-        editIndex=-1
-    }else  tableRows.push(tableData)
+    if (isEdit) {
+        tableRows[editIndex] = tableData
+        isEdit = false
+        editIndex = -1
+    } else tableRows.push(tableData)
 
-    fname.value=lname.value=age.value=city.value=''
+    fname.value = lname.value = age.value = city.value = ''
 
-    addTableToHTML(addTableRows(tableRows))  
-    tableData={} // reset object    
+    addTableToHTML(addTableRows(tableRows))
+    tableData = {} // reset object    
     tableRefresh() // refresh table
-    
+
 })
-
-
-
-
-
-   
-
-
-
