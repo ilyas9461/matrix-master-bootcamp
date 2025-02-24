@@ -93,7 +93,7 @@ buttonsArray.forEach(btn => {
             }
         }
 
-        display.value = dispData.text  // update display after very click event.
+        display.value = dispData.text  // update display after every click event.
     })// btns add listener
 })
 
