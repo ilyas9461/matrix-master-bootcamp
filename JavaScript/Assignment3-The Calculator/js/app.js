@@ -1,4 +1,3 @@
-
 import {
     dispData,
     resetDispData,
@@ -8,16 +7,17 @@ import {
 
 const allBtnHTML = document.getElementsByTagName('button')
 const buttonsArray = [...allBtnHTML];
-const operators = document.getElementsByClassName('operator')
 const display = document.querySelector('.display')
 const board = document.getElementsByTagName('textarea')[0]
 
-console.log(dispData);
-
 buttonsArray.forEach(btn => {
     btn.addEventListener('click', (e) => {
+        // console.log(e.target);
+
         let className = e.target.className
         let textContent = e.target.textContent
+
+        if (className === 'history-btn') board.value = ''
 
         if (dispData.calculated || textContent === 'C' || textContent === 'CE') {
             resetDispData()
@@ -46,33 +46,34 @@ buttonsArray.forEach(btn => {
             dispData.clkAnotherOperator = true
         }
         if (textContent === '²√x' && parseFloat(dispData.text) > 0) {
-            dispData.text =  Math.sqrt(parseFloat(dispData.text)).toFixed(3)
+            dispData.text = Math.sqrt(parseFloat(dispData.text)).toFixed(3)
             dispData.clkAnotherOperator = true
         }
 
-
         holdOperator(className, textContent, dispData)
-
         // console.log(dispData);
 
         if (className.includes('equal') && !dispData.calculated) {
             // debugger
-            if (dispData.clckOperand !== '' && dispData.text.length > 2) {
+            if (dispData.clckOperator !== '' && dispData.text.length > 2) {
 
                 let boardText = board.value + dispData.text
                 let operands = dispData.text.split(dispData.clckOperator)
                 dispData.text = calculateWithOperand(operands[0], operands[1], dispData.clckOperator)
-                boardText += ' = ' + dispData.text + '\n'
-                board.value = boardText
+                if (dispData.text === undefined)
+                    dispData.text = ''
+                else {
+                    boardText += ' = ' + dispData.text + '\n'
+                    board.value = boardText
+                }
                 dispData.calculated = true
+                // console.log('dispData.text:', dispData.text);
             }
             else {
                 resetDispData()
             }
         }
-
         display.value = dispData.text
-        // console.log(dispData)
     })
 })
 

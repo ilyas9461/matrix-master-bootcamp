@@ -13,13 +13,18 @@ const resetDispData = () => {
 }
 
 const holdOperator = (btnClassName, textContent, dispObj) => {
+    if (dispObj.text === '0') dispObj.text = ''
     if (btnClassName.includes('operator')) {
-        // let { clckOperator, text } = dispObj
         console.log(dispObj);
+
         if (dispObj.clckOperator  === '') {
             dispObj.clckOperator = textContent
             dispObj.text += textContent
-        }
+
+            if(dispObj.text.length==1) {
+                dispObj.text= dispObj.clckOperator=''
+            }
+        }      
     }
 }
 
