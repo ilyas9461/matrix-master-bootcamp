@@ -13,7 +13,10 @@ const resetDispData = () => {
 }
 
 const holdOperator = (btnClassName, textContent, dispObj) => {
-    if (dispObj.text === '0') dispObj.text = ''
+    if (dispObj.text === '0') {
+        dispObj.text = ''
+        return
+    }
     if (btnClassName.includes('operator')) {
         console.log(dispObj);
 
