@@ -47,7 +47,6 @@ buttonsArray.forEach(btn => {
 
             if (!isNaN(dispData.text)) dispData.clckOperator = ''  // if we erase operator we must reset this key because
                                                                    // if we clicked operator we set this key.
-
         }
 
         if (textContent === '1/x' && parseFloat(dispData.text) > 0) {
@@ -67,15 +66,15 @@ buttonsArray.forEach(btn => {
             dispData.clkAnotherOperator = true
         }
 
-        holdOperator(className, textContent, dispData)  // we checked which operators clicked.
+        holdOperator(className, textContent, dispData)  // we checked which operators clicked and set object data.
 
         if (className.includes('equal') && !dispData.calculated) {
             // debugger  // it allows debug operation on the browser and we can see step by step code flow.
             if (dispData.clckOperator !== '' && dispData.text.length > 2) {
 
                 let boardText = board.value + dispData.text
-                let operands = dispData.text.split(dispData.clckOperator) // we split operation text in the display according to operator.
-                                                                          // the result of the split is array.
+                let operands = dispData.text.split(dispData.clckOperator) // we split the operation text in the display according 
+                                                                          // to operator. the result of the split is array.
 
                 dispData.text = calculateWithOperand(operands[0], operands[1], dispData.clckOperator)
 
@@ -93,7 +92,7 @@ buttonsArray.forEach(btn => {
                 resetDispData()
             }
         }
-        
+
         display.value = dispData.text  // update display after very click event.
     })// btns add listener
 })
