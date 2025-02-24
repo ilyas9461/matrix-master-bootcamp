@@ -2,7 +2,7 @@ function fetchData() {
     return new Promise(function (resolve, reject) {
         fetch('https://api.weather.gov/gridpoints/TOP/31,80/forecast')
             .then(response => response.json())
-            .then(data => resolve(JSON.stringify(data.properties.periods[0])))
+            .then(data => resolve(data.properties.periods[0].shortForecast))
             .catch((err)=> reject(err))
 
     })
