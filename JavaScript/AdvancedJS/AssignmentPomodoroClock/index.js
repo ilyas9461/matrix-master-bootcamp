@@ -141,13 +141,12 @@ const startTimer = (timerSession) => {
                 breakObj.second = 0
                 breakObj.value = 0
                 pauseTimer(this.timer)
-                resetValue()
+                // resetValue()
 
             }
 
         }
-        console.log('isTimerRunning', isTimerRunning);
-        
+        // console.log('isTimerRunning', isTimerRunning);        
         // console.log('sliderWidth:', sliderWidth, slider.firstValue);
         slider.area.style.width = `${sliderWidth}%`
 
