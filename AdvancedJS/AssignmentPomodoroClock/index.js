@@ -30,8 +30,6 @@ slider = {
 let timer;
 let isTimerRunning = false
 
-
-
 breakObj.plusBtn.onclick = () => {
     if (!sessionObj.isRunning && !breakObj.isRunning) {
         breakObj.value++
