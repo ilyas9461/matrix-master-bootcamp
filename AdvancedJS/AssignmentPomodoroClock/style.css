@@ -52,7 +52,8 @@ section div {
   height: 1px;
   width: 0%;
   background-color: #04aa6d;
-  margin: auto;
+  margin:auto;
+  padding: 3px;
 }
 a {
   font-size: 18px;

@@ -4,9 +4,9 @@ const breakObj = {
     contentCount: document.getElementById('break-content'),
     contentTimer: document.getElementById('display-break'),
     value: 1,
-    second: 60,
+    second: 0,
     timer: undefined,
-    isRunning: false
+    isRunning: false,
 }
 
 const sessionObj = {
@@ -15,7 +15,7 @@ const sessionObj = {
     contentCount: document.getElementById('session-content'),
     contentTimer: document.getElementById('display-session'),
     value: 1,
-    second: 60,
+    second: 0,
     timer: undefined,
     isRunning: false,
 }
@@ -23,22 +23,23 @@ const sessionObj = {
 slider = {
     display: document.querySelector('.display'),
     area: document.querySelector('.slider'),
-    firstValue: 0,
-    value: 0
+    firstValueSession: 0,
+    firstValueBreak: 0,
+    value: 0,
+    sliderWidth: 0
 }
 
-let timer;
 let isTimerRunning = false
 
 breakObj.plusBtn.onclick = () => {
-    if (!sessionObj.isRunning && !breakObj.isRunning) {
+    if (!isTimerRunning) {
         breakObj.value++
         breakObj.contentCount.textContent = breakObj.value
     }
-
 }
+
 breakObj.minusBtn.onclick = () => {
-    if (!sessionObj.isRunning && !breakObj.isRunning) {
+    if (!isTimerRunning) {
         breakObj.value--
         if (breakObj.value < 0) breakObj.value = 0
         breakObj.contentCount.textContent = breakObj.value
@@ -46,14 +47,14 @@ breakObj.minusBtn.onclick = () => {
 }
 
 sessionObj.plusBtn.onclick = () => {
-    if (!sessionObj.isRunning && !breakObj.isRunning) {
+    if (!isTimerRunning) {
         sessionObj.value++
         sessionObj.contentCount.textContent = sessionObj.value
     }
 }
 
 sessionObj.minusBtn.onclick = () => {
-    if (!sessionObj.isRunning && !breakObj.isRunning) {
+    if (!isTimerRunning) {
         sessionObj.value--
         if (sessionObj.value <= 0) sessionObj.value = 0
         sessionObj.contentCount.textContent = sessionObj.value
@@ -63,12 +64,9 @@ sessionObj.minusBtn.onclick = () => {
 const pauseTimer = (t) => {
     clearInterval(t);
     isTimerRunning = false
-    console.log('pause timer');
-    
 }
 
 const resetValue = () => {
-    
     isTimerRunning = false
     sessionObj.isRunning = false
     sessionObj.value = sessionObj.contentCount.textContent
@@ -76,108 +74,104 @@ const resetValue = () => {
     breakObj.isRunning = false
     breakObj.value = breakObj.contentCount.textContent
 
-    console.log('resetValue');
-    pauseTimer(timer)
+    if (sessionObj.value == 1 && !sessionObj.isRunning) slider.firstValueSession = (sessionObj.value * 60)
+    else slider.firstValueSession = (sessionObj.value * 60) + sessionObj.second
 
+    if (breakObj.value == 1 && !breakObj.isRunning) slider.firstValueBreak = (breakObj.value * 60)
+    else slider.firstValueBreak = (breakObj.value * 60) + breakObj.second
+}
+
+const sessionTimer = () => {
+    sessionObj.isRunning = true;
+    if (sessionObj.value == 1) sessionObj.second = 0
+
+    slider.width = 0
+
+    sessionObj.timer = setInterval(() => {
+        isTimerRunning = true
+
+        sessionObj.second--;
+        if (sessionObj.second <= 0) {
+            sessionObj.second = 60
+            sessionObj.value--
+        }
+
+        sessionObj.contentTimer.textContent = `${sessionObj.value} : ${sessionObj.second}`
+        slider.value = (sessionObj.value * 60) + sessionObj.second
+        slider.width = parseInt((100 * (slider.value)) / slider.firstValueSession)
+
+        if (sessionObj.value < 0) {
+            sessionObj.contentTimer.textContent = 'SESSION'
+            sessionObj.second = 0
+            sessionObj.value = 0
+            slider.width = 0
+            pauseTimer(sessionObj.timer)
+            sessionObj.isRunning = true
+            isTimerRunning = false
+            startTimer('BREAK')
+        }
+        // console.log('sliderWidth:', slider.width, slider.firstValueSession);
+
+        slider.area.style.width = `${slider.width}%`
+
+    }, 200);
+}
+
+const breakTimer = () => {
+    breakObj.isRunning = true;
+    if (breakObj.value == 1) breakObj.second = 0
+
+    slider.width = 0
+
+    breakObj.timer = setInterval(() => {
+        isTimerRunning = true
+
+        breakObj.second--;
+        if (breakObj.second <= 0) {
+            breakObj.second = 60
+            breakObj.value--
+        }
+
+        breakObj.contentTimer.textContent = `${breakObj.value} : ${breakObj.second}`
+        slider.value = (breakObj.value * 60) + breakObj.second
+        slider.width = parseInt((100 * (slider.value)) / slider.firstValueBreak)
+
+        if (breakObj.value < 0) {
+            breakObj.contentTimer.textContent = 'BREAK'
+            breakObj.second = 0
+            breakObj.value = 0
+            pauseTimer(breakObj.timer)
+            resetValue()
+        }
+
+        // console.log('sliderWidth:', slider.width, slider.firstValueBreak);
+
+        slider.area.style.width = `${slider.width}%`
+
+    }, 200);
 }
 
 const startTimer = (timerSession) => {
-
-    this.timerSession = timerSession
-    // this.timer=timer
-
-    if (timerSession === 'SESSION') {
-        sessionObj.isRunning = true;
-        if (sessionObj.value == 1) sessionObj.second = 0
-    }
-    if (timerSession === 'BREAK') {
-        breakObj.isRunning = true;
-        if (breakObj.value == 1) breakObj.second = 0
-
-    }
-    console.log(timerSession);
-
-    this.timer=timer= setInterval(() => {
-
-        isTimerRunning = true
-        let sliderWidth = 0
-
-        if (this.timerSession === 'SESSION') {
-            sessionObj.second--;
-            if (sessionObj.second <= 0) {
-                sessionObj.second = 60
-                sessionObj.value--
-            }
-
-            sessionObj.contentTimer.textContent = `${sessionObj.value} : ${sessionObj.second}`
-            slider.value = (sessionObj.value * 60) + sessionObj.second
-            sliderWidth = 100 - parseInt((100 * (slider.value)) / slider.firstValue)
-
-            if (sessionObj.value < 0) {
-                sessionObj.contentTimer.textContent = 'SESSION'
-                sessionObj.second = 0
-                sessionObj.value = 0
-
-                breakObj.isRunning = true
-                sliderWidth = 0
-                startTimer('BREAK')
-            }
-        }
-        else if(this.timerSession === 'BREAK'){
-            breakObj.second--;
-            if (breakObj.second <= 0) {
-                breakObj.second = 60
-                breakObj.value--
-            }
-
-            breakObj.contentTimer.textContent = `${breakObj.value} : ${breakObj.second}`
-            slider.value = (breakObj.value * 60) + breakObj.second
-            sliderWidth = 100 - parseInt((100 * (slider.value)) / slider.firstValue)
-
-            if (breakObj.value < 0) {
-                breakObj.contentTimer.textContent = 'BREAK'
-                breakObj.second = 0
-                breakObj.value = 0
-                pauseTimer(this.timer)
-                // resetValue()
-
-            }
-
-        }
-        // console.log('isTimerRunning', isTimerRunning);        
-        // console.log('sliderWidth:', sliderWidth, slider.firstValue);
-        slider.area.style.width = `${sliderWidth}%`
-
-    }, 200);
-
-
+    if (timerSession === 'SESSION') sessionTimer()
+    if (timerSession === 'BREAK') breakTimer()
+    // console.log(timerSession);
 }
-
-console.log(slider);
 
 slider.display.onclick = () => {
-
-    if (sessionObj.value == 1 && !sessionObj.isRunning) slider.firstValue = (sessionObj.value * 60)
-    else slider.firstValue = (sessionObj.value * 60) + sessionObj.second
-
-    if (breakObj.value == 1 && !breakObj.isRunning) slider.firstValue = (breakObj.value * 60)
-    else slider.firstValue = (breakObj.value * 60) + breakObj.second
-
-    if ((!sessionObj.isRunning && !breakObj.isRunning && !isTimerRunning) || 
-        (sessionObj.isRunning && !breakObj.isRunning && !isTimerRunning)) {
+    if ((!sessionObj.isRunning && !breakObj.isRunning && !isTimerRunning) ||
+        (sessionObj.isRunning && !breakObj.isRunning && !isTimerRunning))
         startTimer('SESSION')
 
-    }
 
-    if ((sessionObj.isRunning && breakObj.isRunning  && !isTimerRunning)|| 
-        (sessionObj.isRunning && breakObj.isRunning && !isTimerRunning))
+    if ((sessionObj.isRunning && breakObj.isRunning && !isTimerRunning))
         startTimer('BREAK')
 
-    if (isTimerRunning) pauseTimer(timer)
+    if (isTimerRunning && sessionObj.isRunning && !breakObj.isRunning) pauseTimer(sessionObj.timer)
+    if (isTimerRunning && sessionObj.isRunning && breakObj.isRunning) pauseTimer(breakObj.timer)
 
-    console.log('disp click', isTimerRunning);
+
+    console.log('timer runnign:' + isTimerRunning, sessionObj, breakObj);
 
 }
 
-
-
+resetValue()
