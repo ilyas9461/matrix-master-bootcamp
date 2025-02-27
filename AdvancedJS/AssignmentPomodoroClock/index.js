@@ -98,7 +98,7 @@ const sessionTimer = () => {
 
         sessionObj.contentTimer.textContent = `${sessionObj.value} : ${sessionObj.second}`
         slider.value = (sessionObj.value * 60) + sessionObj.second
-        slider.width = parseInt((100 * (slider.value)) / slider.firstValueSession)
+        slider.width = 100-parseInt((100 * (slider.value)) / slider.firstValueSession)
 
         if (sessionObj.value < 0) {
             sessionObj.contentTimer.textContent = 'SESSION'
@@ -134,7 +134,7 @@ const breakTimer = () => {
 
         breakObj.contentTimer.textContent = `${breakObj.value} : ${breakObj.second}`
         slider.value = (breakObj.value * 60) + breakObj.second
-        slider.width = parseInt((100 * (slider.value)) / slider.firstValueBreak)
+        slider.width =100- parseInt((100 * (slider.value)) / slider.firstValueBreak)
 
         if (breakObj.value < 0) {
             breakObj.contentTimer.textContent = 'BREAK'
