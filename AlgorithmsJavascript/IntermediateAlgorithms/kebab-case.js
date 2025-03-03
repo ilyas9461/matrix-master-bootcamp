@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Game of 3s'));
+    console.log(kebapCase('Search and Replace'));
     

@@ -1,5 +1,4 @@
-/*
-    We want to play a "Game of 3s". Here's how you play it:
+/*  We want to play a "Game of 3s". Here's how you play it:
     First, you pick a random number. Then, repeatedly do the following:
     If the number is divisible by 3, divide it by 3.
     If it's not, either add 1 or subtract 1 (to make it divisible by 3), then divide it by 3.
@@ -11,7 +10,6 @@
                 4 -1
                 1
 */
-
 function gameOfThree(n) {
     let isGameOver = false
     let resultDivide = n
@@ -29,9 +27,7 @@ function gameOfThree(n) {
                 console.log(resultDivide, '+1');
                 resultDivide++
             }
-
         }
-
         if (resultDivide < 2) isGameOver = true
     }
 }
