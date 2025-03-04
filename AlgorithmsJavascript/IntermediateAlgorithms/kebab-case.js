@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Bunny Ears'))    //bunny-ears
+    console.log(kebapCase('iFib vs rFib'))    //bunny-ears
     
