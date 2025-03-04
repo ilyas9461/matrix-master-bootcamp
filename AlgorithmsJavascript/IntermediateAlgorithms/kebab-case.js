@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('rFactorial')) 
+    console.log(kebapCase('Bunny Ears'))    //bunny-ears
     
