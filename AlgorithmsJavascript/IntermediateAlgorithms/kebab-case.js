@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Sum All Odd Fibonacci'));
+    console.log(kebapCase('Bubble Sort'));
     
