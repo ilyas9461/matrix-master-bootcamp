@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Bubble Sort'));
+    console.log(kebapCase('Selection Sort')) // should give 'selection-sort';
     
