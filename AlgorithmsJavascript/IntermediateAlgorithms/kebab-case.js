@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Search and Replace'));
+    console.log(kebapCase('Sum All Primes'));
     
