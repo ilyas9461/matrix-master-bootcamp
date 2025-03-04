@@ -13,5 +13,5 @@
 
     console.log(bunnyEars(0)); // 0
     console.log(bunnyEars(1)); // 2
-    console.log(bunnyEars(10)); // 
+    console.log(bunnyEars(10)); // 20
     
