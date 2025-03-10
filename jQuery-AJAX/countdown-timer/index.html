@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <div class="timer-container">
+        <div class="timer-btns">
+            <div class="timer" id="timer">00:00:00</div>
+            <div class="buttons">
+                <button class="start-btn" id="start">Start</button>
+                <button class="pause-btn" id="pause">Pause</button>
+                <button class="reset-btn" id="reset">Reset</button>
+            </div>
+        </div>       
+        <div class="edit">
+            Timer <span id="timer-label">(00:15:00)</span> 
+            <input type="text" id="edit-timer" value="00:15:00">
+            <a href="#" id="edit-btn"> <span>🖉</span> Edit</a>
+        </div>
+    </div>
+
+    <script src="./jquerry.js"></script>
+    <script src="./index-vanilla-js.js"></script>
+    <!-- <script src="./index-jquerry.js"></script> -->
+</body>
+</html>

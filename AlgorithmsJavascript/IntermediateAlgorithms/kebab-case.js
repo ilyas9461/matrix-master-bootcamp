@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('Turing to Gates'))    //bunny-ears
+    console.log(kebapCase('Countdown Timer'))    //bunny-ears
     
