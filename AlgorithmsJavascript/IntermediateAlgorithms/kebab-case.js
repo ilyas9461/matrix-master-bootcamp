@@ -11,5 +11,5 @@
         return str.split(' ').join('-')
     }
 
-    console.log(kebapCase('jQuery Bonanza'))    //bunny-ears
+    console.log(kebapCase('Turing to Gates'))    //bunny-ears
     

@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  main {
+      background-color: #f1f1f1;
+      border: solid 3px black;
+      width: 50%;
+      margin: 10px auto;
+  }
+  header {   
+    height: 100px;
+    background-color: #c1c1c1;
+    color: black;
+    border-bottom: solid 3px black;
+    padding-left: 10px;
+  }
+  .header-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+  }
+  .header-left{
+    margin-left: 3px;
+  }
+  .header-middle input{ 
+    background-image:url('./images/input.png');
+    background-color: #c1c1c1;
+    background-size: cover; 
+    background-repeat:repeat;
+    background-position: center;
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 100%;
+    padding-left: 10px;
+  }
+  .header-right input{
+    background-image:url('./images/search.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #c1c1c1;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+
+  }
+  .left-arrow{
+        background-image:url('./images/left-arrow.png');
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 35px;
+        height: 35px; 
+        cursor: pointer;    
+        border: none ;   
+
+  }
+  .right-arrow{
+        background-image:url('./images/right-arrow.png');
+  }
+  .cancel{
+    background-image:url('./images/cancel.png');
+  }
+  .home{
+    background-image:url('./images/home.png');
+  }
+
+  .content {
+    background-color: #f1f1f1;
+    margin: 20px;
+    text-align: center;
+  }
+  .content img {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+  .img1a{
+    src: url('./images/1a.jpg');
+  }
+  .img2a{
+    src: url('./images/2a.jpg');
+  }
+  .img3a{
+    src: url('./images/3a.jpg');
+  }
+  .img1b{
+    src: url('./images/1b.jpg');
+  }
+.img2B{
+    src: url('./images/2b.jpg');
+  }
+  .img3b{
+    src: url('./images/3b.jpg');
+  }
+  footer {
+    background-color: #c1c1c1;
+    color: black;
+    border-top: solid 3px black;
+    text-align: center;
+    padding: 20px;
+  }
