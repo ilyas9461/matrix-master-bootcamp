@@ -38,9 +38,11 @@ header, footer {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    flex-shrink: 1;
 }
 .timer {
-    font-size: 130px;
+    font-size: 8vw; /* Adjust font size based on viewport width. 
+    if the screen smaller than before, font-size is smaller.*/
     color: #555;    
 }
 .buttons {
@@ -48,14 +50,14 @@ header, footer {
     margin-left: 40px;
 }
 button {
-    font-size: 20px;
-    padding: 10px 20px;
+    text-align: center;
+    font-size: 2vw; /* Adjust font size based on viewport width */
     border: none;
     border-radius: 50%;
     cursor: pointer;
     margin: 5px;
-    width: 100px;
-    height: 100px;
+    width: 8vw;  /* Adjust font size based on viewport width */
+    height: 8vw;
 }
 .start-btn {
     background: white;
