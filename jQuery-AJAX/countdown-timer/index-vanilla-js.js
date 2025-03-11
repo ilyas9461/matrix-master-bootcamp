@@ -3,9 +3,9 @@ let timeLeft = timeNew = 900; // 15 minutes in seconds
 let running = false;
 
 const updateDisplay = () => {
-    let hours = Math.floor(timeLeft / 3600);
-    let minutes = Math.floor((timeLeft % 3600) / 60);
-    let seconds = timeLeft % 60;
+    let hours = Math.floor(timeLeft / 3600);            // 3600 seconds in an hour
+    let minutes = Math.floor((timeLeft % 3600) / 60);   // 60 seconds in a minute
+    let seconds = timeLeft % 60;                        // remaining seconds
 
     document.getElementById("timer").textContent =
         `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
