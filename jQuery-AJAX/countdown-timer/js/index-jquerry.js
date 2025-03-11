@@ -7,17 +7,16 @@ const updateDisplay = (timerOrEdit) => {
     let minutes = Math.floor((timeLeft % 3600) / 60);       // 60 seconds in a minute
     let seconds = timeLeft % 60;                            // remaining seconds
 
-    if (timerOrEdit) {  // if timerOrEdit is true, then update the timer
+    if (timerOrEdit) {                                      // if timerOrEdit is true, then update the timer
         $("#timer").text(
             `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
         );
-    }else{
+    }else{                                                  // if timerOrEdit is false, then update the label
         let label = $("#timer-label");
         label.text(`(${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')})`);
         
     }
 }
-
 
 const pauseTimer = () => {
     clearInterval(timer);
@@ -51,17 +50,15 @@ $("#reset").on("click", () => {
 
 $("#edit-btn").on("click", (event) => {
     event.preventDefault();
-
+    pauseTimer();
     let input = $("#edit-timer");
     let label = $("#timer-label");
 
     if (input.css("display") === "none") {
         input.css("display", "inline");
         label.css("display", "none");
-        input.focus();
-        pauseTimer();
+        input.focus();        
     } else {
-        pauseTimer();
         let newTime = input.val().split(":")
         minutes = parseInt(newTime[1]) || 0,
             seconds = parseInt(newTime[2]) || 0;
