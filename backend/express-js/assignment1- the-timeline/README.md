@@ -4,7 +4,6 @@
 </p>
 
 ```bash
-- Clone or downlod files.
 - npm i
 - npm run dev
 ```
