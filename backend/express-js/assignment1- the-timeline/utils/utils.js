@@ -17,31 +17,11 @@ const sortByCreatedAtWithFor = (arr, ascOrDesc) => {
             let dateA = new Date(arr[j - 1].createdAt.split("-").reverse().join("-"));
             let dateB = new Date(arr[j].createdAt.split("-").reverse().join("-"))
 
-
             if (ascOrDesc) {
                 if (dateA > dateB) swapElementsArr(arr, j - 1, j)
             } else if (dateA < dateB) swapElementsArr(arr, j - 1, j)
-
-
         }
     }
-
-    // for (let i = 0; i < arr.length - 1; i++) {
-    //     for (let j = 0; j < arr.length - 1 - i; j++) {
-    //         // Convert '12-05-2018' to a sortable format because date format in the array is different 
-    //         // new Date() date format 2018-05-12 that way reverse method.
-    //         let dateA = new Date(arr[j].createdAt.split("-").reverse().join("-"));
-    //         let dateB = new Date(arr[j + 1].createdAt.split("-").reverse().join("-"))
-
-    //         if (ascOrDesc) {
-    //             if(dateA > dateB) swapElementsArr(arr, arr[j], arr[j + 1])
-    //         } else {
-    //             if (dateA < dateB) swapElementsArr(arr, arr[j], arr[j + 1])
-    //         }
-
-    //     }
-    // }
-
     return arr
 }
 
