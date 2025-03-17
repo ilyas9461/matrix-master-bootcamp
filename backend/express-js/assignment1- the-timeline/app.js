@@ -5,19 +5,19 @@ const app = express()
 const { sortByCreatedAtWithFor,formatDateWithSuffix }=require('./utils/utils.js')
 
 // Model
-const {posts}=require('./models/data.js')
-console.log(sortByCreatedAtWithFor(posts,false))
+let {posts}=require('./models/data.js')
+posts=sortByCreatedAtWithFor(posts,false)
 
 //View
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
-// Serve static files from the 'public' directory from css and images
+// Serve static files from the 'public' directory for css and images
 app.use(express.static('public'));
 
 // Controller
 app.get("/", (req, res) => {
-    res.render("index", { posts, formatDateWithSuffix });
+    res.render("index", { posts , formatDateWithSuffix });
   });
 
 // Server

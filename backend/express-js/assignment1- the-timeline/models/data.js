@@ -31,7 +31,7 @@ const posts = [
   },
   {
     name: "Ava Taylor",
-    createdAt: "30-06-2016",
+    createdAt: "30-07-2017",
     message: "Reading a great book right now."
   },
   {
@@ -49,7 +49,7 @@ const posts = [
     createdAt: "10-08-2023",
     message: "Starting a new job next week!"
   }
-];
+]
 
 
 module.exports = {

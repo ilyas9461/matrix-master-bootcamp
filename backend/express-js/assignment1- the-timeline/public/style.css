@@ -12,11 +12,10 @@ main {
   margin: 10px auto;
 }
 header {
-  height: 100px;
   background-color: #c1c1c1;
   color: black;
   border-bottom: solid 3px black;
-  padding-left: 10px;
+  padding: 10px;
 }
 .header-title {
   font-size: 1.5em;
@@ -27,7 +26,7 @@ header {
 }
 .header-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0px 20px;
 }
@@ -46,17 +45,7 @@ header {
   width: 100%;
   padding-left: 10px;
 }
-.header-right input {
-  background-image: url("./images/search.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #c1c1c1;
-  border: none;
-  outline: none;
-  height: 50px;
-  width: 100%;
-}
+
 .left-arrow {
   background-image: url("./images/left-arrow.png");
   background-size: cover;
