@@ -34,7 +34,6 @@ const sortByCreatedAtWithArrMethod = (arr, ascOrDesc) => {
     })
 }
 
-// Get ordinal suffix (st, nd, rd, th)
 const getDaySuffix = (n) => {
     if (n > 3 && n < 21) return "th"; // 11th, 12th, 13th...
     switch (n % 10) {
