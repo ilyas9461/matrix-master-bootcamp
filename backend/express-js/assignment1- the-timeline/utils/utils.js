@@ -44,7 +44,6 @@ const getDaySuffix = (n) => {
         default: return "th";
     }
 }
-
 // Month names array
 const months = [
     "January", "February", "March", "April", "May", "June",
