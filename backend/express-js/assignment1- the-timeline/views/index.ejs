@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <title>Node EJS</title>
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class="header-section">
+        <div class="header-left">
+          <button class="left-arrow"> </button>
+          <button class="left-arrow right-arrow"> </button>
+          <button class="left-arrow cancel"> </button>
+          <button class="left-arrow home"> </button>
+        </div>
+        <div class="header-middle">
+          <input type="text" name="name" id="name" placeholder="http://">
+        </div>
+      </div>
+    </header>
+    <div class="header-title">
+      Assignment 1 - The timeline
+    </div>
+    <div class="content">
+      <% posts.forEach(function(post) { %>
+        <h3>
+          <%= post.name %>
+            <%= formatDateWithSuffix(post.createdAt) %>
+        </h3>
+        <p>
+          <%= post.message %>
+        </p>
+        <% }) %>
+
+    </div>
+    <footer>
+
+    </footer>
+  </main>
+</body>
+
+</html>
