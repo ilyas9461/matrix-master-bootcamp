@@ -3,7 +3,7 @@
 <img src="./public/images/screen.png" alt="pelus" width="50%" height="50%" align="center" style="margin:10px">
 </p>
 
-## Some data put in the HTML With EJS.
+## Some data put in the HTML With Vanilla Java Script.
 
 ```bash
 - npm i
