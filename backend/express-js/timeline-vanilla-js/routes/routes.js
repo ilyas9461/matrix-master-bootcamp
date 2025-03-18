@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {dataReq} = require('../conrtoller/data-controller');
+const {dataReq} = require('../controller/data-controller');
 
 // router.get('/', (req, res) => {
 //   res.status(200).send('This is the root route!');
