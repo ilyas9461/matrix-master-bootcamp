@@ -38,7 +38,9 @@ const submitPost = async () => {
     const createdAt = new Date().toLocaleDateString('en-GB').split("/").join("-") + ',' + new Date().toLocaleTimeString()
     const post = { name: name.value, message: message.value, createdAt };
 
-    if (!name.value || name.value == '' || !message.value || message.value == '') return alert('Please fill in all fields!');
+    if (!name.value || name.value == '' || !message.value || message.value == '')
+         return alert('Please fill in all fields!');
+        
     try {
         const result = await sendRequest('/post', 'POST', post)
         console.log('Result of submit:', result);
@@ -61,9 +63,10 @@ const updateContent = (data) => {
     window.frontData = data // Store data as a global variable.
 
     if (data && data.length > 0) {
-        content.innerHTML = ''
+        content.innerHTML = ''                      //Reset content area.
         data.forEach((post, index) => {
-            content.innerHTML += Post(post, index)
+            content.innerHTML += Post(post, index)  // Update content area with 'Post' component and
+                                                    // show post header and message in the area.
         })
 
         updatePostBtns() // update all butons with click event

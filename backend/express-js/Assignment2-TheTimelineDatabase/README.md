@@ -9,6 +9,7 @@
 - Full CRUD operations.
 
 ```bash
+- Copy or download or clone project in your locale.
 - npm i
 - npm run dev
 - Go to http://localhost:3000
