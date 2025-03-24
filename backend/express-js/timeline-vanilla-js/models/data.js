@@ -1,8 +1,8 @@
 const posts = [
   {
-    name: "Emily Johnson",
-    createdAt: "12-05-2018",
-    message: "This is my message    This is my message This is my message This is my messageThis is my message"
+    name: "Ahmet Mehmet",
+    createdAt: "12-05-2025",
+    message: "Yeni message ....."
   },
   {
     name: "Daniel Smith",
@@ -51,6 +51,4 @@ const posts = [
   }
 ]
 
-module.exports = {
-  posts
-}
+module.exports = posts

@@ -8,6 +8,7 @@ const getData = async () => {
         console.log(err);  // catch errors
     }
 }
+
 const getDaySuffix = (n) => {
     if (n > 3 && n < 21) return "th"; // 11th, 12th, 13th...
     switch (n % 10) {
@@ -33,10 +34,13 @@ const formatDateWithSuffix = (dateStr) => {
 }
 
 const content = document.querySelector('.content');
+
 getData().then(data => {
-    data.forEach(post => {
+    console.log("data:",data);
+    
+    data.forEach((post, index) => {
         content.innerHTML += `
-            <h3>${post.name}  ${formatDateWithSuffix(post.createdAt)}</h3>
+            <h3> ${index}- ${post.name}  ${formatDateWithSuffix(post.createdAt)}</h3>
             <p>${post.message}</p>
         `;
     });
