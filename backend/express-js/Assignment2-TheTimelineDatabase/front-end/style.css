@@ -24,7 +24,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   width: 60%;
-  margin:5px auto;
+  margin: 5px auto;
   align-items: flex-end;
   border: dashed 1px black;
   padding: 5px;
@@ -32,23 +32,23 @@ main {
 .post-message button {
   padding: 3px;
   margin-top: 5px;
-  background-color: #4CAF50;  
+  background-color: #4caf50;
   color: white;
-  cursor: pointer; 
+  cursor: pointer;
   width: 20%;
 }
-.post-message input{
+.post-message input {
   width: 100%;
   margin-top: 5px;
   padding: 3px;
 }
-textarea{
+textarea {
   width: 100%;
   margin-top: 5px;
-  resize: vertical; 
+  resize: vertical;
   padding: 3px;
 }
-label{
+label {
   width: 100%;
   margin-top: 3px;
   font-size: 14px;
@@ -61,33 +61,32 @@ label{
   margin: 10px;
 }
 
-.posts{
+.posts {
   border: dashed 1px lightblue;
-  width:100%;
+  width: 100%;
   margin: 3px;
   padding: 10px;
 }
-.post-header{
+.post-header {
   display: flex;
   justify-content: space-between;
 }
-.post-btns button{
+.post-btns button {
   padding: 5px;
-  background-color: #387dba;  
+  background-color: #387dba;
   color: white;
-  cursor: pointer; 
+  cursor: pointer;
   border: none;
   border-radius: 3px;
-
 }
-.post-btns button:hover{
-  background-color: #2a2c2d;  
+.post-btns button:hover {
+  background-color: #2a2c2d;
 }
 
-.posts textarea{
+.posts textarea {
   width: 85%;
-  min-height: 30px; /* Minimum height */
-  resize: none; /* Prevent manual resizing */
+  min-height: 30px; 
+  resize: none; 
   overflow: hidden; /* Hide scrollbar */
   padding: 8px;
   font-size: 16px;

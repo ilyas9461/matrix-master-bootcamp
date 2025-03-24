@@ -2,7 +2,6 @@ import { formatDateWithSuffix, updateContent } from '../front-utils/front-utils.
 import sendRequest from "../front-utils/fetchdata.js"
 
 const Post = (post, index) => {
-
     return `
     <div class="posts">
         <div class="post-header">
@@ -18,14 +17,17 @@ const Post = (post, index) => {
     `
 }
 
-let clickEventTracker = ''
+let clickEventTracker = ''  // This variable store which element clicked in the 'Post' component.
 
 const deleteBtnsUpdate = (deleteButtons) => {
     deleteButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const dataIndex = e.target.getAttribute('data-index');
+
             console.log(`Delete button clicked for index: ${window.frontData[dataIndex]._id}`, window.frontData);
+
             const ans=prompt('If you want to delete this post, you must write "Yes" in the promt!')
+
             if(ans==='Yes'){
                 sendRequest('/delete', 'DELETE', window.frontData[dataIndex])
                 .then(data => {
@@ -44,12 +46,13 @@ const editBtnsUpdate = (editButtons) => {
             const clickedInputId = `edit-text-${dataIndex}`
             const editInput = document.getElementById(clickedInputId)
 
-            console.log(`Edit button clicked for index: ${dataIndex}`);
+            console.log(`Edit button clicked for index: ${dataIndex}`)
 
+            // If you click on the 'Edit' button, it will replace the text with 'Save'. 
+            // After clicking the button again, the message will be updated and the button will be reset.
             if (clickEventTracker != clickedInputId && clickEventTracker === '') {
                 e.target.textContent = 'Save'
                 editInput.disabled = false
-                // console.log('edit-item:', window.frontData[dataIndex]._id);
                 clickEventTracker = clickedInputId
             } else if (clickEventTracker === clickedInputId) {
                 e.target.textContent = 'Edit'
@@ -57,10 +60,11 @@ const editBtnsUpdate = (editButtons) => {
                 clickEventTracker = '' // reset variable
                 console.log(editInput.value)
 
-                window.frontData[dataIndex].message=editInput.value
+                window.frontData[dataIndex].message=editInput.value // it will change global variable data with the new data.
+
                 sendRequest('/update', 'PUT', window.frontData[dataIndex])
                 .then(data => {
-                    console.log('Delete:', data)
+                    console.log('Update:', data)
                     updateContent(data)
                 })
             }
@@ -75,22 +79,21 @@ const postAreasUpdate = (postAreas) => {
             // const postElement = e.target.closest('.posts');
             // const editInput = postElement.querySelector(`#${clickEventTracker}`);
 
-            // Check input or edit button 
-           
+            // Check textarea or edit button            
             if ((e.target.tagName.toLowerCase() === 'textarea' ) ||
                 e.target.classList.contains('edit-btn')) {
                 return;
             }
 
-            // reset post area
+            // If click wherever in the post area the update will cancel.
             if (clickEventTracker !== '') {
+                                                                                    // get index from variable
                 const clickedEditBtn = document.querySelector(`.edit-btn[data-index="${clickEventTracker.split('-')[2]}"]`);
                 clickedEditBtn.textContent = 'Edit';
                 const editInput = document.getElementById(clickEventTracker);
                 editInput.disabled = true;
                 clickEventTracker = '';
             }
-
         })
     })
 }

@@ -16,6 +16,9 @@ const PostSchema = new mongoose.Schema({
   },
 });
  
-const PostModel = mongoose.model("Posts", PostSchema) // 'Post' is the collection or document name, dB name is in the .env file.
+const PostModel = mongoose.model("Posts", PostSchema) 
+// 'Post' is the collection or document name, DB name is in the .env file.
+//    | -DB-NAME (matrix-master)
+//    |   - Collection or Document Name (posts)
 
 module.exports =PostModel

@@ -1,14 +1,15 @@
-require('dotenv').config();
+require('dotenv').config()  // for .env file.
+
 const express = require("express")
 const app = express()
 const router = require('./configs/routes.js')
-require("./configs/mongoose.js")
+require("./configs/mongoose.js")  // Make connection with MongoDB.
 
 app.use(express.static('front-end'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//This will ensure that the request body is parsed 
-// correctly and available in req.body. Therefor these must be before router.
+//This will ensure that the request body is parsed correctly and available in req.body. 
+// Therefore these must be before router.
 
 app.use(router) 
 

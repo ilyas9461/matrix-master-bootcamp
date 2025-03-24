@@ -4,8 +4,6 @@ const sendRequest = async (endPoint, method, bodyData) => {
     const url = baseUrl + endPoint
     const bodyOptions =  method !== 'GET' ? JSON.stringify(bodyData) : null
     
-    console.log('bodyOptions :', bodyOptions);
-    
     try {
         const response = await fetch(url, {
             method:method,

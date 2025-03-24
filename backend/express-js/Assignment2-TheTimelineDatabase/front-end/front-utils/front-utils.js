@@ -10,7 +10,7 @@ const getDaySuffix = (n) => {
         default: return "th";
     }
 }
-// Month names array
+
 const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -24,21 +24,18 @@ const formatDateWithSuffix = (dateStr) => {
         time = dateStr.split(',')[1]
     } else date = dateStr
 
-    // Split "DD-MM-YYYY" and rearrange to "YYYY-MM-DD"
+    // Split "DD-MM-YYYY" and rearrange
     let [day, month, year] = date.split("-").map(Number);
     date = new Date(year, month - 1, day); // Month is 0-based in JS
 
-    // Format: "Month DDth YYYY"
+    // Format: "Month DDth YYYY" and time
     return `${months[date.getMonth()]} ${day}${getDaySuffix(day)} ${year} ${time}`;
 }
-
-
 
 const submitPost = async () => {
     const name = document.getElementById('name');
     const message = document.getElementById('message');
     const createdAt = new Date().toLocaleDateString('en-GB').split("/").join("-") + ',' + new Date().toLocaleTimeString()
-    // const createdAt = new Date().toLocaleString()
     const post = { name: name.value, message: message.value, createdAt };
 
     if (!name.value || name.value == '' || !message.value || message.value == '') return alert('Please fill in all fields!');
@@ -61,17 +58,22 @@ const updateContent = (data) => {
     const content = document.querySelector('.content')
     content.innerHTML = ''
 
-    window.frontData = data
+    window.frontData = data // Store data as a global variable.
 
     if (data && data.length > 0) {
         content.innerHTML = ''
         data.forEach((post, index) => {
             content.innerHTML += Post(post, index)
         })
-        updatePostBtns()
-        const textarea = document.querySelector('.message-area')
-        textarea.style.height = "auto"; // Reset height to recalculate
-        textarea.style.height = textarea.scrollHeight + "px"; // Set height to match content
+
+        updatePostBtns() // update all butons with click event
+
+        // Set all textareas to fit with their content.
+        const textareas = document.querySelectorAll('.message-area')
+        textareas.forEach(textarea => {
+            textarea.style.height = "auto";                         // Reset height to recalculate.
+            textarea.style.height = textarea.scrollHeight + "px";   // Set height to match content.
+        })
 
     } else console.log('No data...');
 

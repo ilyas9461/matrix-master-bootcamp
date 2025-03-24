@@ -1,6 +1,7 @@
 const { post } = require('../configs/routes');
 const PostModel = require('../models/post-models');
 
+// After every operations, all datas will get from DB  and send frontend.
 const getAllDataFromDB = async () => {
     try {
         const allPosts = await PostModel.find({}).sort({ _id: 'desc' })
@@ -16,8 +17,6 @@ const getAllDataFromDB = async () => {
 const getData = async (req, res) => {
     try {
         const posts = await getAllDataFromDB()
-        // console.log('get post:', posts);
-
         if (posts.length > 0)
             res.send(posts)
         else
@@ -28,12 +27,10 @@ const getData = async (req, res) => {
 }
 
 const postData = async (req, res) => {
-    console.log('post body :', req.body)
     const Post = new PostModel(req.body)
-
     Post.save().then(async () => {
         const posts = await getAllDataFromDB()
-        console.log('alld data after post:', posts);
+        console.log('all data after post:', posts);
         
         res.status(200).send(posts)
     }).catch((error) => {
@@ -41,9 +38,7 @@ const postData = async (req, res) => {
     })
 }
 
-const deletePost= async(req, res)=>{
-    console.log('Delete req:',req.body);
-    
+const deletePost= async(req, res)=>{ 
     PostModel.deleteOne({_id:{$eq:req.body._id}}).then(async ()=>{
         const posts = await getAllDataFromDB()
         console.log('alld data after delete:', posts);
@@ -54,12 +49,11 @@ const deletePost= async(req, res)=>{
     })
 }
 
-const updatePost= async(req, res)=>{
-    console.log('Update req:',req.body);
-    
+const updatePost= async(req, res)=>{   
     PostModel.updateOne({_id:{$eq:req.body._id}}, req.body).then(async ()=>{
         const posts = await getAllDataFromDB()
         console.log('alld data after update:', posts);
+        
         res.status(200).send(posts)
     }).catch(error=>{
         res.status(400).send(error)

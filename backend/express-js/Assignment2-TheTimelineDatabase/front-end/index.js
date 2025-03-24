@@ -2,8 +2,8 @@ import sendRequest from "./front-utils/fetchdata.js"
 import { submitPost,updateContent } from './front-utils/front-utils.js'
 
 const postBtn = document.getElementById('post')
-const content = document.querySelector('.content')
-window.frontData = []
+
+window.frontData = []       // Global variable for posts data.       
 
 postBtn.onclick = ('submit', async (e) => {
     e.preventDefault()
@@ -12,7 +12,6 @@ postBtn.onclick = ('submit', async (e) => {
 })
 
 sendRequest('/data', 'GET', '').then(data => {
-    // console.log('data:',data)
     if (data.message) {
         console.log(data.message);
         return;
