@@ -1,4 +1,4 @@
-<h1 align="center">Assignment 1 - The timeline</h1>
+<h1 align="center">Assignment 3 - The timeline comments</h1>
 <p  align="center">
 <img src="./front-end/images/front.png" alt="pelus" width="50%" height="50%" align="center" style="margin:10px">
 </p>
