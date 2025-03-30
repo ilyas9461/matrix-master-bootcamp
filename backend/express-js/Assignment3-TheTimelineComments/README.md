@@ -70,6 +70,7 @@ http://localhost:PORT
 ## ERD (entity-relationship diagram)
 <p align="center">
   <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="400">
+  <p align="center"> ERD Diagram</p>
 </p>
 
 ## Relationships with Collections:
