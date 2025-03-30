@@ -1,9 +1,15 @@
 # Assignment 3 - The Timeline Comments
+## Features
 
-## Screenshots
+- Backend with Node.js.
+- Frontend with Vanilla JS (No EJS).
+- MongoDB and Mongoose ORM.
+- Full CRUD operations.
 
-### Frontend Screenshots
+---
 
+### Screenshots
+---
 <p align="center">
   <table align='center'>
     <tr>
@@ -29,16 +35,7 @@
   </table>
 </p>
 
----
 
-## Features
-
-- Backend with Node.js.
-- Frontend with Vanilla JS (No EJS).
-- MongoDB and Mongoose ORM.
-- Full CRUD operations.
-
----
 
 ## How to Run the Project
 
