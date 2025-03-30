@@ -2,8 +2,9 @@ import loadCSS from '../load-css.js'
 import { RegisterForm } from '../register/register-form.js'
 import {LoginForm} from '../login/login.js'
 
-loadCSS('./component/modal/modal.css')  // this path bases to server base Url. Like,  
-                                        // http://localhost:3000/component/modal/modal.css
+loadCSS('./component/modal/modal.css')  // this path bases to server base Url. 
+                                        // The main directorry of the front-end defines app.js
+                                        // This is static files directory. In this projest is 'front-end' directory.
 
 const Modal = (title, content) => {
     return `
@@ -25,7 +26,7 @@ const Modal = (title, content) => {
 const showModalWith = component => {
     const modalContainer = document.querySelector('.modal-container')
     if (modalContainer) {
-        modalContainer.innerHTML = ''
+        modalContainer.innerHTML = ''  // Remove before component.
     }
 
     if (component === 'REGISTER') {

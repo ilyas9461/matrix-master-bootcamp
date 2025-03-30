@@ -2,7 +2,9 @@ import loadCSS from '../load-css.js'
 import sendRequest from '../../front-utils/fetchdata.js'
 import { closeModal } from '../modal/modal.js'
 
-loadCSS('./component/register/register.css')
+loadCSS('./component/register/register.css') // this path bases to server base Url. 
+                                             // The main directorry of the front-end defines app.js
+                                             // This is static files directory. In this projest is 'front-end' directory.
 
 const RegisterForm = () => {
     return `

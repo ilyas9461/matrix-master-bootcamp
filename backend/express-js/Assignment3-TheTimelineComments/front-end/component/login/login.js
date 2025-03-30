@@ -3,7 +3,9 @@ import sendRequest from '../../front-utils/fetchdata.js'
 import { closeModal } from '../modal/modal.js'
 import {updateContent, disabledMessageArea } from '../../front-utils/front-utils.js'
 
-loadCSS('./component/register/register.css')
+loadCSS('./component/register/register.css') // this path bases to server base Url. 
+                                             // The main directorry of the front-end defines app.js
+                                             // This is static files directory. In this projest is 'front-end' directory.
 
 const LoginForm = () => {
     return `

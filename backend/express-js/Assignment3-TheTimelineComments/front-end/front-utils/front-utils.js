@@ -20,12 +20,12 @@ const formatDateWithSuffix = (dateStr) => {
     let date = new Date(dateStr).toLocaleDateString()
     let time = ''
 
-    let [month,day, year] = date.split("/").map(Number);
+    let [month,day, year] = date.split("/").map(Number)
 
     date = new Date(year, month - 1, day) // Month is 0-based in JS 
 
     // Format: "Month DDth YYYY" and time
-     return `${months[month - 1]} ${day}${getDaySuffix(day)} ${date.getFullYear()} ${time}`;
+     return `${months[month - 1]} ${day}${getDaySuffix(day)} ${date.getFullYear()} ${time}`
 }
 
 const submitPost = async () => {
@@ -72,7 +72,7 @@ const submitComment = async (message, index) => {
             console.log('submitComment: No data in DB...!')
         )
     } catch (error) {
-        console.log('error:', error);
+        console.log('error:', error)
     }
 }
 
@@ -96,9 +96,9 @@ const updateContent = (data) => {
         const textareas = document.querySelectorAll('.message-area')
         textareas.forEach(textarea => {
             textarea.style.height = "auto";                         // Reset height to recalculate.
-            textarea.style.height = textarea.scrollHeight + "px";   // Set height to match content.
+            textarea.style.height = textarea.scrollHeight + "px"    // Set height to match content.
         })
-    } else console.log('updateContent : No data..!');
+    } else console.log('updateContent : No data..!')
 }
 
 const removeContent=()=>{

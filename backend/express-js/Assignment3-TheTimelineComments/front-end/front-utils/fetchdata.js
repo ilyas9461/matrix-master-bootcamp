@@ -16,7 +16,6 @@ const sendRequest = async (endPoint, method, bodyData) => {
     } catch (err) {
         console.log(err)
     }
-    return url
 }
 
 export default sendRequest

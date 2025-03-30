@@ -33,7 +33,7 @@ loginBtn.onclick=e=>{
 
 postBtn.onclick = ('submit', async (e) => {
     e.preventDefault()
-    console.log('submitPost:');
+
     const data = await submitPost()
     updateContent(data)
 })
@@ -41,7 +41,7 @@ postBtn.onclick = ('submit', async (e) => {
 if(window.isUser){
     sendRequest('/data', 'GET', '').then(data => {
         if (data.message) {
-            console.log(data.message);
+            console.log(data.message)
             return;
         }
         updateContent(data)
