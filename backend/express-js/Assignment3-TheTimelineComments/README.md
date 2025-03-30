@@ -57,7 +57,7 @@ MONGO_URI=...
 npm run dev
 
 # Open your browser and go to
-http://localhost:3000
+http://localhost:PORT
 ```
 
 ## How do you use project?
