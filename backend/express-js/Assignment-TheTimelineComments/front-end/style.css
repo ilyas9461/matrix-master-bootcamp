@@ -131,6 +131,10 @@ label {
   font-size: 8px;
   padding: 3px;
 }
+.post-comment-area li span{
+  color: #387dba;
+  font-weight: 700;
+}
 .post-comment-area button:hover{
   background-color: #000609;
 }

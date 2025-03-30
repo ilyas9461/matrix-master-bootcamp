@@ -4,9 +4,10 @@ import { updateContent } from '../../front-utils/front-utils.js'
 const Comment=(comments,index)=>{
     let html=''
     comments.forEach((item,i) => {
+        // console.log('item:', item)        
         html+= `
         <div class="post-comment-area">          
-          <li> ${item.comment}</li>
+          <li><span>@${item.user.first_name} </span> ${item.comment}</li>
           <button class="comment-del" data-index="${index}"  data-item="${i}"> ❌ </button>  
         </div> 
     `

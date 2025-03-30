@@ -6,8 +6,17 @@ const getAllDataFromDB = async () => {
     try {
         const allMessages = await MessageModel.find({})
         .populate('user','first_name last_name')
-        .populate('comments', 'comment')
+        .populate({
+            path: 'comments', // Populate the comments array
+            options: { sort: { _id: -1 } }, //desc
+            populate: {
+                path: 'user', // Populate the user field inside each comment
+                select: 'first_name last_name email' // Select specific fields from the user
+            },
+            sort:{ _id: 'desc' }
+        })
         .sort({ _id: 'desc' })
+
         if (allMessages.length === 0 || !allMessages) {
             return false
         } else return allMessages

@@ -42,7 +42,7 @@ const loginUser = async () => {
                         console.log(data.message)
                         return
                     }
-                    console.log('Result of get user data:', data)
+                    console.log('Result of get all data after login:', data)
                     updateContent(data)
                 }).catch(err => console.log(err))
 

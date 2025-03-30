@@ -45,7 +45,7 @@
 git clone <full-repository-url>
 
 # Navigate to the project directory with 'cd' command or file explorer.
- Assignment3-TheTimelineComments
+ Assignment-TheTimelineComments
 
 # Install dependencies
 npm install
