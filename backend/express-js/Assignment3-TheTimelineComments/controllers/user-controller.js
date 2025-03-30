@@ -15,6 +15,7 @@ const getAllUsers = (req, res) => {
 }
 
 const getUser=(req,res)=>{
+    console.log('Get User');
     
     const { email, password } = req.body
     if (!email || !password) {

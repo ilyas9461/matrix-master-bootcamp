@@ -28,9 +28,9 @@ const loginUser = async () => {
         }
         console.log(userData);
         try {
-            const result = await sendRequest('/get-user', 'POST', userData)        
-            if (result) {
-                // console.log('Result of login:', result)
+            const result = await sendRequest('/get-user', 'POST', userData)   
+            console.log('Result of login:', result)     
+            if (!result.error) {
                 window.isUser=result
                 const logoutBtn = document.querySelector('.logout')
                 logoutBtn.textContent=result.first_name+'-Logout'
@@ -47,9 +47,10 @@ const loginUser = async () => {
                 }).catch(err => console.log(err))
 
                 return result
-            } else (
-                console.log('User : No data in DB...!')
-            )
+            } else {
+                console.log('User Login: No user data in DB...!')
+                return
+            }
         } catch (error) {
             console.log('error:', error);
         }
