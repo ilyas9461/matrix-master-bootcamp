@@ -68,11 +68,20 @@ http://localhost:PORT
 - Make CRUD operations with related butons.
 
 ## ERD (entity-relationship diagram)
-<p align="center">
-  <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="400">
-  <p align="center"> ERD Diagram</p>
-</p>
 
+<table align='center'>
+    <tr>
+      <td align="center">
+        <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="400">
+        <p>ERD (entity-relationship diagram)</p>
+      </td>
+      <td align="center">
+        <img src="./front-end/images/compas.png" alt="ERD Diagram" width="400">
+        <p>Compas MongoDB</p>
+      </td>
+    </tr>
+<table>
+  
 ## Relationships with Collections:
 
 ### Users <--> Messages:

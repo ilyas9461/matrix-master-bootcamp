@@ -21,4 +21,11 @@ const CommentSchema = new mongoose.Schema({
     { timestamps: true })
 
 const CommentModel = mongoose.model("Comments", CommentSchema)
+                                // (CollectionName, Schema)
+// 'Comments' is the collection or document name, DB name is in the connection URL in the .env file.
+//    | -DB NAME (matrix-master)
+//       [Collection or Document Name] 
+//    |   - messages
+//    |   - users
+//    |   - comments
 module.exports = CommentModel

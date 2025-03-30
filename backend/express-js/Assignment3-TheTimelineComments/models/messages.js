@@ -19,9 +19,13 @@ const MessageSchema = new mongoose.Schema({
 },
   { timestamps: true });
 
-const MessageModel = mongoose.model("Messages", MessageSchema)
-// 'Post' is the collection or document name, DB name is in the .env file.
-//    | -DB-NAME (matrix-master)
-//    |   - Collection or Document Name (Messages)
+const MessageModel = mongoose.model("Messages", MessageSchema) 
+                                // (CollectionName, Schema)
+// 'Messages' is the collection or document name, DB name is in the connection URL in the .env file.
+//    | -DB NAME (matrix-master)
+//       [Collection or Document Name] 
+//    |   - messages
+//    |   - users
+//    |   - comments
 
 module.exports = MessageModel
