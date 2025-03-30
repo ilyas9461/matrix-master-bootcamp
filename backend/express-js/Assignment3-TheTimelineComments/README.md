@@ -1,22 +1,42 @@
-<h1 align="center">Assignment 3 - The timeline comments</h1>
-<div align="center" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-  <img src="./front-end/images/front.png" alt="pelus" width="50%" height="25%" style="margin: 10px;">
-  <img src="./front-end/images/front-login.png" alt="pelus" width="50%" height="25%" style="margin: 10px;">
-</div>
-<div align="center" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-  <img src="./front-end/images/front-after-login.png" alt="pelus" width="50%" height="25%" style="margin: 10px;">
-  <img src="./front-end/images/register.png" alt="pelus" width="50%" height="25%" style="margin: 10px;">
-</div>
+# Assignment 3 - The Timeline Comments
 
-- Backend with NodeJs.
+## Screenshots
+
+### Frontend Screenshots
+
+| Front Page | Login Page |
+|------------|------------|
+| ![Front Page](./front-end/images/front.png) | ![Login Page](./front-end/images/front-login.png) |
+
+| After Login | Register Page |
+|-------------|---------------|
+| ![After Login](./front-end/images/front-after-login.png) | ![Register Page](./front-end/images/register.png) |
+
+---
+
+## Features
+
+- Backend with Node.js.
 - Frontend with Vanilla JS.
 - MongoDB and Mongoose ORM.
-- Full CRUD operations.25```bash
-- Copy or download or clone project in your locale.
-- npm i
-- npm run dev
-- Go to http://localhost:3000
+- Full CRUD operations.
 
-```
+---
 
-```
+## How to Run the Project
+
+```bash
+# Clone or download the project
+git clone <full-repository-url>
+
+# Navigate to the project directory
+cd Assignment3-TheTimelineComments
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Open your browser and go to
+http://localhost:3000
