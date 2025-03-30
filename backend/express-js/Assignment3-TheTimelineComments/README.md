@@ -5,11 +5,11 @@
 ### Frontend Screenshots
 
 <p align="center">
-  <table>
+  <table align='center'>
     <tr>
       <td align="center">
         <img src="./front-end/images/front.png" alt="Front Page" width="300">
-        <p>Front Page</p>
+        <p>Home Page without login</p>
       </td>
       <td align="center">
         <img src="./front-end/images/front-login.png" alt="Login Page" width="300">
@@ -72,7 +72,7 @@ http://localhost:3000
 
 ## ERD (entity-relationship diagram)
 <p align="center">
-  <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="300">
+  <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="400">
 </p>
 
 ## Relationships with Collections:
