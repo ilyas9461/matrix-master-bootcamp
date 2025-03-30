@@ -35,6 +35,10 @@ cd Assignment3-TheTimelineComments
 # Install dependencies
 npm install
 
+# Create .env file in the project main directory and assign  your values  to the variables.
+PORT=...
+MONGO_URI=...
+
 # Start the development server
 npm run dev
 
