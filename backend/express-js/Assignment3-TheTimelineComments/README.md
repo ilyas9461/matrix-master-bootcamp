@@ -4,13 +4,30 @@
 
 ### Frontend Screenshots
 
-| Front Page | Login Page |
-|------------|------------|
-| <img src="./front-end/images/front.png" alt="Front Page" width="300"> | <img src="./front-end/images/front-login.png" alt="Login Page" width="300"> |
-
-| After Login | Register Page |
-|-------------|---------------|
-| <img src="./front-end/images/front-after-login.png" alt="After Login" width="300"> | <img src="./front-end/images/register.png" alt="Register Page" width="300"> |
+<p align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="./front-end/images/front.png" alt="Front Page" width="300">
+        <p>Front Page</p>
+      </td>
+      <td align="center">
+        <img src="./front-end/images/front-login.png" alt="Login Page" width="300">
+        <p>Login Page</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="./front-end/images/front-after-login.png" alt="After Login" width="300">
+        <p>After Login</p>
+      </td>
+      <td align="center">
+        <img src="./front-end/images/register.png" alt="Register Page" width="300">
+        <p>Register Page</p>
+      </td>
+    </tr>
+  </table>
+</p>
 
 ---
 
@@ -54,9 +71,9 @@ http://localhost:3000
 - Make CRUD operations with related butons.
 
 ## ERD (entity-relationship diagram)
-<div style="text-align: center;">
+<p align="center">
   <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="300">
-</div>
+</p>
 
 ## Relationships with Collections:
 
