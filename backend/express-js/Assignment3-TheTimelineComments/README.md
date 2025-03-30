@@ -6,11 +6,11 @@
 
 | Front Page | Login Page |
 |------------|------------|
-| ![Front Page](./front-end/images/front.png) | ![Login Page](./front-end/images/front-login.png) |
+| <img src="./front-end/images/front.png" alt="Front Page" width="300"> | <img src="./front-end/images/front-login.png" alt="Login Page" width="300"> |
 
 | After Login | Register Page |
 |-------------|---------------|
-| ![After Login](./front-end/images/front-after-login.png) | ![Register Page](./front-end/images/register.png) |
+| <img src="./front-end/images/front-after-login.png" alt="After Login" width="300"> | <img src="./front-end/images/register.png" alt="Register Page" width="300"> |
 
 ---
 
@@ -54,9 +54,11 @@ http://localhost:3000
 - Make CRUD operations with related butons.
 
 ## ERD (entity-relationship diagram)
-![ERD](./front-end/images/erd-db.png)
+<div style="text-align: center;">
+  <img src="./front-end/images/erd-db.png" alt="ERD Diagram" width="300">
+</div>
 
-## Relationships:
+## Relationships with Collections:
 
 ### Users <--> Messages:
 One user can create many messages (1:N relationship).
@@ -72,12 +74,12 @@ Each comment belongs to one user.
 
 ## Explanation of Relationships:
 
-1. One-to-One (1:1) Relationship:
+### 1. One-to-One (1:1) Relationship:
 - Definition: Each entity in one collection is associated with exactly one entity in another collection.
 - Example: A User has one Profile, and each Profile belongs to one User.
-2. One-to-Many (1:N) Relationship:
+### 2. One-to-Many (1:N) Relationship:
 - Definition: One entity in a collection is associated with multiple entities in another collection.
 - Example: A User can create many Messages, but each Message belongs to only one User.
-3. Many-to-Many (M:N) Relationship:
+### 3. Many-to-Many (M:N) Relationship:
 - Definition: Many entities in one collection are associated with many entities in another collection.
 - Example: A User can belong to many Groups, and each Group can have many Users.
