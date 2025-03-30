@@ -81,7 +81,7 @@ http://localhost:PORT
       </td>
     </tr>
 <table>
-<p align='center'>ERD (entity-relationship diagram) && Compas MongoDB </p>
+<p align='center'>ERD (Entity-Relationship Diagram - https://dbdiagram.io) && Compas MongoDB </p>
 
 ## Relationships with Collections:
 
