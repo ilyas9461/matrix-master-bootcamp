@@ -3,8 +3,9 @@ const MessageModel= require('../models/messages')
 const {getAllDataFromDB} =require('./message-controller')
 
 const addComment = (req, res) => {
-    const Comment = new CommentModel(req.body);
-
+    console.log('addComment:',req.body )
+        
+    const Comment = new CommentModel(req.body)
     Comment.save()
         .then(async (comment) => {
             // console.log('Result of save comment: ', comment)

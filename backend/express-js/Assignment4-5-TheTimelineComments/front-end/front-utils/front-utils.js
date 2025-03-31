@@ -1,6 +1,10 @@
 import sendRequest from "./fetchdata.js"
 import { Post, updatePostBtns } from '../component/post/post.js'
 
+const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+]
 const getDaySuffix = (n) => {
     if (n > 3 && n < 21) return "th"; // 11th, 12th, 13th...
     switch (n % 10) {
@@ -11,36 +15,28 @@ const getDaySuffix = (n) => {
     }
 }
 
-const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-];
-
 const formatDateWithSuffix = (dateStr) => {
     let date = new Date(dateStr).toLocaleDateString()
     let time = ''
-
-    let [month,day, year] = date.split("/").map(Number)
-
+    let [month, day, year] = date.split("/").map(Number)
     date = new Date(year, month - 1, day) // Month is 0-based in JS 
 
     // Format: "Month DDth YYYY" and time
-     return `${months[month - 1]} ${day}${getDaySuffix(day)} ${date.getFullYear()} ${time}`
+    return `${months[month - 1]} ${day}${getDaySuffix(day)} ${date.getFullYear()} ${time}`
 }
 
 const submitPost = async () => {
     const message = document.getElementById('message');
-    const user= window.isUser
+    const user = JSON.parse(localStorage.getItem("isUser")).user
 
     if (!message.value || message.value == '')
-         return alert('Please fill in all fields!')
+        return alert('Please fill in all fields!')
 
-    const post = {message: message.value, user }
-       
+    const post = { message: message.value, user }
+
     try {
         const result = await sendRequest('/post', 'POST', post)
-        console.log('Result of submit:', result)
-
+        // console.log('Result of submit:', result)
         if (result) {
             message.value = ''
             return result
@@ -53,20 +49,23 @@ const submitPost = async () => {
 }
 
 const submitComment = async (message, index) => {
-    const commentInput= document.getElementById(`comment-${index}`);
-    const user= window.isUser
+    const commentInput = document.getElementById(`comment-${index}`);
+    const user = JSON.parse(localStorage.getItem('isUser')).user
+    // console.log('submitComment user:', user)
+    if (!commentInput.value || commentInput.value == '' || commentInput.value.length < 26)
+        return alert('Please fill in comment field!')
 
-    if (!commentInput.value || commentInput.value == '' || commentInput.value.length<26) 
-         return alert('Please fill in comment field!')
+    const comment = { 
+        comment: commentInput.value, 
+        user: user._id, 
+        message: message._id 
+    }
 
-    const comment = {comment: commentInput.value, user:user._id, message:message._id}
-      
     try {
         const result = await sendRequest('/add-comment', 'POST', comment)
-        console.log('Result of submit comment:', result)
-
+        // console.log('Result of submit comment:', result)
         if (result) {
-            commentInput.value= ''
+            commentInput.value = ''
             return result
         } else (
             console.log('submitComment: No data in DB...!')
@@ -81,7 +80,7 @@ const updateContent = (data) => {
     content.innerHTML = ''
 
     disabledMessageArea(false)
-    window.frontData = data                         // Store data as a global variable.
+    localStorage.setItem('frontData', JSON.stringify(data))
 
     if (data && data.length > 0) {
         content.innerHTML = ''                      //Reset content area.
@@ -101,23 +100,23 @@ const updateContent = (data) => {
     } else console.log('updateContent : No data..!')
 }
 
-const removeContent=()=>{
+const removeContent = () => {
     const content = document.querySelector('.content')
-    content.innerHTML = ''  
+    content.innerHTML = ''
     disabledMessageArea(true)
 }
 
-const disabledMessageArea=(disabled)=>{
-    const textarea=document.getElementById('message')
-    const btn=document.getElementById('post')
+const disabledMessageArea = (disabled) => {
+    const textarea = document.getElementById('message')
+    const btn = document.getElementById('post')
 
-    if(disabled){
-        textarea.disabled=true
-        btn.disabled=true
-    }else{
-        textarea.disabled=false
-        btn.disabled=false
-    } 
+    if (disabled) {
+        textarea.disabled = true
+        btn.disabled = true
+    } else {
+        textarea.disabled = false
+        btn.disabled = false
+    }
 }
 
 export {

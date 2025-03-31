@@ -10,14 +10,15 @@ loadCSS('./component/register/register.css') // this path bases to server base U
 const LoginForm = () => {
     return `
          <div class="container">
-                <form id="loginForm">
-                    <input type="email" id="loginEmail" placeholder="Email" required>
-                    <input type="password" id="loginPassword" placeholder="Password" required>
-                    <button type="submit" id="login-btn">Login</button>
-                </form>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit" id="login-btn">Login</button>
+            </form>   
         </div>
     `
 }
+
 const loginUser = async () => {
     const form = document.getElementById('loginForm')
     form.addEventListener('submit', async (e) => {
@@ -28,12 +29,15 @@ const loginUser = async () => {
         }
         console.log(userData);
         try {
-            const result = await sendRequest('/get-user', 'POST', userData)   
+            const result = await sendRequest('/login', 'POST', userData)   
             console.log('Result of login:', result)     
-            if (!result.error) {
-                window.isUser=result
+            if (result || !result.error ) {
+    
+                localStorage.setItem('isUser', JSON.stringify(result))// if I want to show result in the local storage clearly.
+                // localStorage.setItem('isUser', result)
+
                 const logoutBtn = document.querySelector('.logout')
-                logoutBtn.textContent=result.first_name+'-Logout'
+                logoutBtn.textContent=result.user.first_name+'-Logout'
                 closeModal()
                 disabledMessageArea(false)
 

@@ -40,8 +40,7 @@ const submitUser = async () => {
 
         try {
             const result = await sendRequest('/add-user', 'POST', userData)
-            console.log('Result of submit:', result);
-
+            // console.log('Result of submit:', result)
             if (result) {
                 alert("User save in the DB...!")
                 closeModal()

@@ -9,19 +9,18 @@ const loginBtn = document.querySelector('.login')
 const postBtn = document.getElementById('post') 
 const logoutBtn = document.querySelector('.logout')
 
-window.frontData = []       // Global variable for all of js files.
-window.isUser=false
+// localStorage.setItem('isUser', false) 
+localStorage.setItem('frontData',[])
 
 disabledMessageArea(true)
 
 logoutBtn.onclick=()=>{
-    window.isUser=false
+    localStorage.setItem('isUser', false)
     logoutBtn.textContent='Logout'
     removeContent()
 }
 
 registerBtn.onclick=e=>{
-    console.log('Register', e.target);
     showModalWith('REGISTER')
     submitUser()
 }
@@ -33,12 +32,17 @@ loginBtn.onclick=e=>{
 
 postBtn.onclick = ('submit', async (e) => {
     e.preventDefault()
-
     const data = await submitPost()
     updateContent(data)
 })
 
-if(window.isUser){
+const isUser=JSON.parse(localStorage.getItem('isUser'))
+if(isUser.user){
+    console.log('isUser',JSON.parse(localStorage.getItem('isUser')))
+
+    const logoutBtn = document.querySelector('.logout')
+    logoutBtn.textContent=isUser.user.first_name+'-Logout'
+
     sendRequest('/data', 'GET', '').then(data => {
         if (data.message) {
             console.log(data.message)

@@ -9,20 +9,20 @@ const CommentSchema = new mongoose.Schema({
     user:
     {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users',
+        ref: 'users',
     },
     message:
     {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Messages',
+        ref: 'messages',
     },
 
 },
     { timestamps: true })
 
-const CommentModel = mongoose.model("Comments", CommentSchema)
+const CommentModel = mongoose.model("comments", CommentSchema)
                                 // (CollectionName, Schema)
-// 'Comments' is the collection or document name, DB name is in the connection URL in the .env file.
+// 'comments' is the collection or document name, DB name is in the connection URL in the .env file.
 //    | -DB NAME (matrix-master)
 //       [Collection or Document Name] 
 //    |   - messages

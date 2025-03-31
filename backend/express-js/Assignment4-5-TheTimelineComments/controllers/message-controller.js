@@ -4,6 +4,7 @@ const MessageModel = require('../models/messages');
 // After every operations, all datas will get from DB  and send frontend.
 const getAllDataFromDB = async () => {
     try {
+        
         const allMessages = await MessageModel.find({})
         .populate('user','first_name last_name')
         .populate({
@@ -15,8 +16,8 @@ const getAllDataFromDB = async () => {
             },
             sort:{ _id: 'desc' }
         })
-        .sort({ _id: 'desc' })
-
+        .sort({ _id: 'desc' })        
+        
         if (allMessages.length === 0 || !allMessages) {
             return false
         } else return allMessages
@@ -29,6 +30,7 @@ const getAllDataFromDB = async () => {
 const getData = async (req, res) => {
     try {
         const messages = await getAllDataFromDB()
+        // console.log('allMessages:', messages)
         if (messages.length > 0)
             res.send(messages)
         else
@@ -44,7 +46,7 @@ const addPost = async (req, res) => {
     const Message = new MessageModel(req.body)
     Message.save().then(async () => {
         const messages = await getAllDataFromDB()
-        console.log('all data after post:', messages);
+        // console.log('all data after post:', messages)
 
         res.status(200).send(messages)
     }).catch((error) => {
@@ -56,7 +58,7 @@ const deletePost = async (req, res) => {
     const Message = new MessageModel(req.body)
     Message.deleteOne({ _id: { $eq: req.body._id } }).then(async () => {
         const messages = await getAllDataFromDB()
-        console.log('alld data after delete:', messages);
+        // console.log('alld data after delete:', messages);
 
         res.status(200).send(messages)
     }).catch(error => {
@@ -66,6 +68,8 @@ const deletePost = async (req, res) => {
 
 const updatePost = async (req, res) => {
     try {
+        console.log('updatePost:', req.body);
+        
         const { _id, ...updateData } = req.body; // Destructure _id and other fields from the request body
 
         if (!_id) {

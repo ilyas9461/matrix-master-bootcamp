@@ -8,20 +8,20 @@ const MessageSchema = new mongoose.Schema({
   user:
   {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Users',
+    ref: 'users'
   },
   comments:[
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Comments',
+      ref: 'comments',
     }
   ]
 },
   { timestamps: true });
 
-const MessageModel = mongoose.model("Messages", MessageSchema) 
+const MessageModel = mongoose.model("messages", MessageSchema) 
                                 // (CollectionName, Schema)
-// 'Messages' is the collection or document name, DB name is in the connection URL in the .env file.
+// 'messages' is the collection or document name, DB name is in the connection URL in the .env file.
 //    | -DB NAME (matrix-master)
 //       [Collection or Document Name] 
 //    |   - messages

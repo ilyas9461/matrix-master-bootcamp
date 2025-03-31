@@ -31,12 +31,13 @@ let clickEventTracker = ''  // This variable store which element clicked in the 
 const deleteBtnsUpdate = (deleteButtons) => {
     deleteButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            const dataIndex = e.target.getAttribute('data-index')
-            // console.log(`Delete button clicked for index: ${window.frontData[dataIndex]._id}`, window.frontData);
+            const dataIndex = e.target.getAttribute('data-index')     
 
             const ans = prompt('If you want to delete this post, you must write "Yes" in the promt!')
             if (ans === 'Yes') {
-                sendRequest('/delete', 'DELETE', window.frontData[dataIndex])
+                const frontData=JSON.parse(localStorage.getItem('frontData'))[dataIndex]
+                // console.log('frontData:',frontData)                
+                sendRequest('/delete', 'DELETE', frontData)
                     .then(data => {
                         console.log('Delete:', data)
                         updateContent(data)
@@ -52,8 +53,7 @@ const editBtnsUpdate = (editButtons) => {
             const dataIndex = e.target.getAttribute('data-index')
             const clickedInputId = `edit-text-${dataIndex}`
             const editInput = document.getElementById(clickedInputId)
-
-            // console.log(`Edit button clicked for index: ${dataIndex}`)
+            console.log(`Edit button clicked for index: ${dataIndex}`)
 
             // If you click on the 'Edit' button, it will replace the text with 'Save'. 
             // After clicking the button again, the message will be updated and the button will be reset.
@@ -64,11 +64,12 @@ const editBtnsUpdate = (editButtons) => {
             } else if (clickEventTracker === clickedInputId) {
                 e.target.textContent = 'Edit'
                 editInput.disabled = true
-                clickEventTracker = '' // reset variable
+                clickEventTracker = ''          // reset variable
 
-                window.frontData[dataIndex].message = editInput.value // it will change global variable data with the new data.
-
-                sendRequest('/update', 'PUT', window.frontData[dataIndex])
+                const frontData=JSON.parse(localStorage.getItem('frontData'))[dataIndex] 
+                frontData.message = editInput.value
+                // console.log('Edit :' ,frontData)                
+                sendRequest('/update', 'PUT', frontData)
                     .then(data => {
                         console.log('Update:', data)
                         updateContent(data)
@@ -80,9 +81,10 @@ const editBtnsUpdate = (editButtons) => {
 const postAreasUpdate = (postAreas) => {
     postAreas.forEach(postArea => {
         postArea.addEventListener('click', (e) => {
-            // console.log(e.target.classList)
-            // const postElement = e.target.closest('.posts') // It reach out to posts area in html.
-            // const editInput = postElement.querySelector(`#${clickEventTracker}`) // to get element from postElement.
+            /* console.log(e.target.classList)
+               const postElement = e.target.closest('.posts') // It reach out to posts area in html.
+               const editInput = postElement.querySelector(`#${clickEventTracker}`) // to get element from postElement.
+             */
 
             // Check textarea or edit button          
             if ((e.target.tagName.toLowerCase() === 'textarea') ||
@@ -102,13 +104,15 @@ const postAreasUpdate = (postAreas) => {
         })
     })
 }
+
 const updatePostConmmentBtns = (btns, index) => {
     btns.forEach((btn, index) => {
         btn.addEventListener('click', async e => {
             const dataIndex = e.target.getAttribute('data-index');
-            console.log(dataIndex);
-            const data = await submitComment(window.frontData[dataIndex], index)
-            console.log(typeof data, data);
+            // console.log('dataIndex:',dataIndex)
+            const frontData=JSON.parse(localStorage.getItem('frontData'))[dataIndex]
+            // console.log('Update frontData' , frontData)            
+            const data = await submitComment(frontData, index) 
 
             if (Array.isArray(data)) // is it's not array, it is error message.
                 updateContent(data)
