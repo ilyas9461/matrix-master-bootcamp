@@ -182,7 +182,7 @@ Each comment belongs to one user.
 5. The protected route processes the request using the verified user data.
 6. Token expiration is handled by re-login or refresh tokens.
  
-## Protected Routes
+## The Protected Routes in this project are as follows:
 These routes require authentication (JWT) because they involve sensitive operations or access to private data.
 
 ### Messages Routes
@@ -203,7 +203,7 @@ These routes require authentication (JWT) because they involve sensitive operati
 - POST /add-comment: Protected with verifyJWT. Adding a comment is a user-specific action, so it must be authenticated.
 - DELETE /del-comment: Protected with verifyJWT. Deleting a comment is sensitive and must be restricted to authenticated users.
 
-## Unprotected Routes
+## The Unprotected Routes in this project are as follows:
 These routes do not require authentication because they are related to public or initial user actions.
 
 ### Users Routes
