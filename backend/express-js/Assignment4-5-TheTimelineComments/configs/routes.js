@@ -9,20 +9,20 @@ const verifyJWT =require('../auth/auth')
 // });
 
 /* Messages routes */
-router.get('/data', getData)                    // it is not protected endpoint
+router.get('/data',verifyJWT, getData)       // protected  with JWT              
 router.post('/post',verifyJWT, addPost)
 router.delete('/delete', verifyJWT,deletePost)
-router.put('/update',verifyJWT, updatePost)     // protected 
+router.put('/update',verifyJWT, updatePost)    
 
 /* Users routes */
 router.get('/users',verifyJWT,getAllUsers)
-router.post('/login',login)
-router.post('/add-user', addUser)   
+router.post('/login',login)                 // it is not protected with JWT. It need correct password and email.
+router.post('/add-user', addUser)           // It related register or sign-up operation it is free, that way it is unprotected.
 router.delete('/del-user',verifyJWT, deleteUser)
 router.put('/update-user',verifyJWT, updateUser)
 
 /* comments routes */
-router.post('/add-comment', addComment)
-router.delete('/del-comment',delComment)
+router.post('/add-comment', verifyJWT,addComment)
+router.delete('/del-comment',verifyJWT, delComment)
 
 module.exports = router;
