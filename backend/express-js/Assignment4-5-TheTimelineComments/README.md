@@ -125,7 +125,7 @@ Each comment belongs to one user.
 - The user provides their credentials (e.g., email and password) to the login endpoint.
 - The backend verifies the credentials by checking the database.
 - If the credentials are valid:
-  - The server generates a JWT token using a secret key.
+  - The server generates a JWT token using a secret key.  (process.env.JWT_SECRET).
   - The token contains a payload with minimal user information (e.g., `userId`, `role`, etc.).
   - The server sends the token back to the client along with any necessary user data.
 
@@ -174,14 +174,6 @@ Each comment belongs to one user.
   - The refresh token is used to generate new access tokens when needed.
 
 ---
-
-### Summary of the JWT Authentication Flow
-1. The user logs in and receives a JWT token.
-2. The client securely stores the token.
-3. The client sends the token in the `Authorization` header for protected routes.
-4. The backend verifies the token and attaches user data to the request.
-5. The protected route processes the request using the verified user data.
-6. Token expiration is handled by re-login or refresh tokens.
  
 ## The Protected Routes in this project are as follows:
 These routes require authentication (JWT) because they involve sensitive operations or access to private data.
