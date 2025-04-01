@@ -9,6 +9,10 @@ This project is part of a Node.js bootcamp challenge. It demonstrates the use of
 - Delete articles.
 - View article details.
 
+<p align="center">
+   <img src="demo.png" alt="demo" width="400">
+</p>
+
 The project is designed to follow best practices for organizing routes, controllers, and views, making it easy to maintain and scale.
 
 ---
