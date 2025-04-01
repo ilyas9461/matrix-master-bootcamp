@@ -9,12 +9,12 @@ This project is part of a Node.js bootcamp challenge. It demonstrates the use of
 - Delete articles.
 - View article details.
 
---
+---
 <p align="center" >
    <img src="./public/demo.png" alt="demo" width="50%">
 </p>
 
---
+---
 
 ## **Features**
 1. **Home Page:**
