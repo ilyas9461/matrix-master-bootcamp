@@ -10,7 +10,7 @@ This project is part of a Node.js bootcamp challenge. It demonstrates the use of
 - View article details.
 
 <p align="center">
-   <img src="./public/demo.png" alt="demo" width="300">
+   <img src="./public/demo.png" alt="demo" width="50%">
 </p>
 
 The project is designed to follow best practices for organizing routes, controllers, and views, making it easy to maintain and scale.
