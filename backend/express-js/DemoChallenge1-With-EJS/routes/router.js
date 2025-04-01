@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
+// Allows using separate route files for different destinations and merging them into a single file.
 const pageRoutes = require('./page-routes');
 const controllerRoutes = require('./controller-routes');
 
