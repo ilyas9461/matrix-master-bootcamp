@@ -18,7 +18,7 @@ const CommentSchema = new mongoose.Schema({
     },
 
 },
-    { timestamps: true })
+{ timestamps: true })
 
 const CommentModel = mongoose.model("comments", CommentSchema)
                                 // (CollectionName, Schema)

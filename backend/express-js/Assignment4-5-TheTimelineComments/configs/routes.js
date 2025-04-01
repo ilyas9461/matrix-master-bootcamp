@@ -25,4 +25,4 @@ router.put('/update-user',verifyJWT, updateUser)
 router.post('/add-comment', verifyJWT,addComment)
 router.delete('/del-comment',verifyJWT, delComment)
 
-module.exports = router;
+module.exports = router

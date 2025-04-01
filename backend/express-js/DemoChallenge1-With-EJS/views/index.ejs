@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head") %>
+<body>
+    <main>
+        <header>
+            <h1>The New York Times</h1>
+            <a href="/new-article">Add new article</a>
+        </header>
+        <% articles.forEach((article,index)=>{%>
+        <div class="articles">            
+                <h2>
+                    <a href="/article-details/<%= index %>">
+                        <%= article.title%>
+                    </a>                    
+                </h2>
+                <p>
+                    <%= article.article%>
+                </p>                
+        </div>
+        <%})%>
+       
+    </main>
+</body>
+
+</html>

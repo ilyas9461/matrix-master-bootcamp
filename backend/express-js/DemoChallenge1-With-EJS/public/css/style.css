@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+main {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  border: 1px dashed gray;
+  margin: 20px auto;
+  padding:20px;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  font-weight: bold;
+}
+a {
+  font-size: 22px;
+}
+.articles{
+    margin: 10px 20px;
+}
+.articles a{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    color:black;
+}
+.articles a:hover{
+    color: gray;
+}
+
+.articles h2, .articles p{
+  margin-top:15px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width:60%;
+    margin: 10px auto;
+}
+form input{
+    padding: 10px;
+}
+form label{
+    font-weight: bold;
+}
+form button{
+    padding: 10px;
+    width : 20%;
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: rgb(3, 33, 89);
+}
+
+form textarea {
+  padding: 10px;
+}
+
+#back-link{
+  margin:20px;
+  font-weight: bold;
+}
+.bottom-links{
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
