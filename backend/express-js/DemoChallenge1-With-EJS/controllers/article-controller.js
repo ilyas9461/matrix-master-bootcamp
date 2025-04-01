@@ -113,7 +113,7 @@ const addArticle = (req, res) => {
     console.log("/new/article :", req.body)
 
     // Check if the request contains an `id` (to determine if it's an update)
-    // because we use same endpoint add and update opertaions from the same page.
+    // Because we use the same controller add and update operations from in the same page.
     const { _id } = req.body
 
     if (_id) { // If `id` exists, update the article        
