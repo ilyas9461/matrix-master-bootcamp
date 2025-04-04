@@ -1,4 +1,4 @@
-# **Node.js Post Messages Management App**
+# **Node.js Message Post Management Application**
 
 ## **Overview**
 This project is part of a Node.js bootcamp challenge. It demonstrates the use of **Node.js**, **Express.js**, and **EJS (Embedded JavaScript)** to build a simple **Post Message Application**. The application allows users to:
