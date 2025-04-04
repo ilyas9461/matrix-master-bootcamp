@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+
+    <body>
+        <main>
+            <header>
+                <p>Add Post</p>
+                <h1>Welcome To Facebook</h1>
+            </header>
+            <div class="message-form">
+                <form action="/new-message" method="POST">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <textarea type="text" name="message" id="message" rows="3" placeholder="Message"></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            <% messages.forEach((message,index)=>{%>
+                <div class="message-item">
+                    <div>
+                        <h2>
+                            <%= message.name%>
+                        </h2>
+                    </div>
+                    <div class="message">
+                        <div>
+                            <p>
+                                <%= message.message%>
+                            </p>
+                        </div>
+                        <div class="date">
+                            <a href="/feed/<%= index %>">
+                                See More
+                            </a>
+                            <p><%= new Date(message.updatedAt).toLocaleDateString()%></p>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+        </main>
+    </body>
+
+</html>

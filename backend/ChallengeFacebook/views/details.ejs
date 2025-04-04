@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+
+    <body>       
+        <main>
+            <header class="detail-header">
+                <h1>Welcome To Facebook</h1>
+            </header>
+            <div class="message-details">
+                <div>
+                    <h2>
+                        <%= message.name%>
+                    </h2>
+                    <p>
+                        <%= new Date(message.updatedAt).toLocaleDateString()%>
+                    </p>
+                </div>
+                <p>
+                    <%= message.message%>
+                </p>
+            </div>
+            <div class="bottom-links">
+                <button class="btn-del"><a href="/feed/delete/<%= index %>">Delete</a></button>
+                <button class="btn-edit"> <a  href="/feed/edit/<%= index %>">Edit</a> </button>            
+                              
+            </div>
+        </main>
+    </body>
+
+</html>
