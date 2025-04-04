@@ -11,7 +11,10 @@ const ArticleSchema=new mongoose.Schema({
         required:true,
         maxlength: [100, 'The Article field must be longer than 100 character']
     }
-},{ timestamps: true })
+},
+{ 
+    timestamps: true 
+})
 
 const ArticleModel = mongoose.model("articles", ArticleSchema)
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+
+    <body>
+        <main>
+            <fieldset>
+                <legend>Login</legend>
+                <form action="/login" method="post">
+                    <div class="form-box">
+                        <div>
+                            <label for="email">Email :</label>
+                            <label for="article">Password:</label>
+                        </div>
+                        <div>
+                            <input type="email" name="email" id="email" value="" required>
+                            <input type="password" name="password" id="password" value="" required>
+                        </div>
+                    </div>    
+                    <button type="submit">Login</button>    
+                </form>
+            </fieldset>
+
+            <fieldset>
+                <legend>Register</legend>
+                <form action="/register" method="post" class="register">
+                    <div class="form-box">
+                        <div>
+                            <label for="first_name">First Name :</label>
+                            <label for="last_name">Last Name:</label>
+                            <label for="email">Email :</label>
+                            <label for="password">Password:</label>
+                            <label for="confirm_password">Confirm Password:</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="first_name" id="first_name" value=""  autocomplete="off" required>
+                            <input type="text" name="last_name" id="last_name" value="" autocomplete="off" required>
+                            <input type="email" name="email" id="email" value="" autocomplete="off" required>
+                            <input type="password" name="password" id="password" value=""  autocomplete="off" required>
+                            <input type="password" name="confirm_password" id="confirm_password" value=""  autocomplete="off" required>
+                        </div>
+                    </div>               
+    
+                    <button type="submit">Register</button>
+    
+                </form>
+            </fieldset>
+           
+            
+
+        </main>
+    </body>
+
+</html>

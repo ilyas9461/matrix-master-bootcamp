@@ -1,7 +1,7 @@
 const ArticleModel = require('../models/articles');
 
 const getAlldata = async () => {
-    return ArticleModel.find({}).sort({ _id: -1 })
+    return ArticleModel.find({}).sort({ _id: -1 }) //desc
         .then(articles => {
             return articles
         })
@@ -12,7 +12,7 @@ const getAlldata = async () => {
 }
 
 const homePage = (req, res) => {
-    getAlldata()
+    getAlldata()  // [{},{} ....]
         .then(articles => {
             res.render('index', { articles })
         })
@@ -95,7 +95,7 @@ const newArticleInDB = (req, res) => {
         .save()
         .then(async () => {
             try {
-                const articles = await getAlldata()
+                // const articles = await getAlldata()
                 // res.render('index', { articles })
                 res.redirect('/')
             } catch (error) {

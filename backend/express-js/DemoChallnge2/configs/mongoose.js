@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')  // ORM
-const ArticleModel = require('../models/articles')
+const ArticleModel = require('../models/users')
 
 mongoose.connect(process.env.MONGO_URI).then(con => {
     

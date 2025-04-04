@@ -15,14 +15,10 @@ const UserSchema = new mongoose.Schema({
         // minLength: 6
     }
 },
-    { timestamps: true })
+    { 
+        timestamps: true 
+    }
+)
 
 const UserModel = mongoose.model("users", UserSchema)
-// (CollectionName, Schema)
-// 'users' is the collection or document name, DB name is in the connection URL in the .env file.
-//    | -DB NAME (matrix-master)
-//       [Collection or Document Name] 
-//    |   - messages
-//    |   - users
-//    |   - comments
 module.exports = UserModel 

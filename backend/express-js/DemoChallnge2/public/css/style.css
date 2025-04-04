@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+main {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  border: 1px dashed gray;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+.header-p{
+  align-self: flex-start;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.top-link {
+  font-size: 18px;
+  align-self: flex-end;
+}
+
+fieldset {
+  border: 1px solid gray;
+  padding: 10px 20px;
+  margin: 5px 20px;
+  position: relative;
+  width: 80%;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 10px; /* Add padding to make it look better */
+  color: gray;
+}
+
+form {
+  display: flex; /* Make the form a flex container */
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Distribute space between elements */
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
+  margin: 5px auto;
+}
+.form-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 20px;
+}
+.form-box div{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  /* align-items: center; */
+  flex: 1; 
+  margin-right:20px;
+}
+form input {
+  padding: 5px;
+  margin-top: 15px;
+}
+form label {
+  padding: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+form button {
+  padding: 10px;
+  width: 20%;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto; /* Pushes the button to the right */
+  margin-right: 40px;
+}
+
+form button:hover {
+  background-color: rgb(3, 33, 89);
+}
