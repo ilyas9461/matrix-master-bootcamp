@@ -5,6 +5,7 @@
     <body>       
         <main>
             <header class="detail-header">
+                <a href="/" >Back</a>
                 <h1>Welcome To Facebook</h1>
             </header>
             <div class="message-details">
@@ -21,9 +22,8 @@
                 </p>
             </div>
             <div class="bottom-links">
-                <button class="btn-del"><a href="/feed/delete/<%= index %>">Delete</a></button>
-                <button class="btn-edit"> <a  href="/feed/edit/<%= index %>">Edit</a> </button>            
-                              
+                <a href="/feed/delete/<%= index %>" class="btn-del ">Delete</a>
+                <a  href="/feed/edit/<%= index %>" class="btn-edit">Edit</a>                              
             </div>
         </main>
     </body>

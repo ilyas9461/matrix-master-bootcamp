@@ -21,7 +21,7 @@ header {
 }
 .detail-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 form {
@@ -94,7 +94,7 @@ form textarea {
   text-decoration: none;
   color: whitesmoke;
 }
-.bottom-links button {
+.bottom-links a{
   width: 10%;
   background-color: cornflowerblue;
   color: white;
@@ -102,6 +102,8 @@ form textarea {
   cursor: pointer;
   margin-left: 10px;
   padding: 5px;
+  text-align: center;
+  border: 1px solid black;
 }
 .btn-del {
   background-color: red !important;
