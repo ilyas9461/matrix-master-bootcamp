@@ -11,7 +11,7 @@ This project is part of a Node.js bootcamp challenge. It demonstrates the use of
 ---
 
 <p align="center">
-   <img src="./public/demo.png" alt="demo" width="50%">
+   <img src="./public/demo2.png" alt="demo" width="50%">
 </p>
 
 ---
