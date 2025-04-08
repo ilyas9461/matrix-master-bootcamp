@@ -4,7 +4,7 @@
 | ![Image 1](images/assignment1.png)   | ![Image 2](images/project.png)   |
 
 ### The app content: 
-- Twoinputs: Task input and Description input.
+- Two inputs: Task input and Description input.
 - Add button.
 - A-List of ToDos. 
 - Done button after each task. 
