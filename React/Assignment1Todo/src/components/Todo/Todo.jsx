@@ -26,7 +26,7 @@ class Todo extends Component {
   deleteTodo = (index) => {
     const { todos } = this.state;
     this.setState({
-      todos: todos.filter((_, i) => i !== index),
+      todos: todos.filter((todo, todoIndex) => todoIndex !== index),
     });
   };
 
