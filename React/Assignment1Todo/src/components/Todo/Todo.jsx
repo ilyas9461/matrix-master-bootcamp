@@ -4,7 +4,8 @@ class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [], // Array to hold todo items
+      todos: JSON.parse(localStorage.getItem("todos")) || [], // Load todos from localStorage or initialize as empty
+                                                              // if refresh the page the data cant lose.
       todo: {
         newTodo: "", // Input value for a new todo
         todoDescribe: "",
@@ -35,23 +36,36 @@ class Todo extends Component {
   addTodo = () => {
     const { todos, todo } = this.state;
 
-    this.setState({
-      todos: [...todos, todo],
-      todo: { newTodo: "", todoDescribe: "" },
-    });
+    if (todo.newTodo.trim() && todo.todoDescribe.trim()) {
+      const updatedTodos = [...todos, todo];
+      this.setState({
+        todos: updatedTodos,
+        todo: { newTodo: "", todoDescribe: "" },
+      });
 
-    console.log(todos);
+      // Save updated todos to localStorage
+      localStorage.setItem("todos", JSON.stringify(updatedTodos));
+      console.log('todos:', updatedTodos);
+      
+    }
   };
 
   deleteTodo = (index) => {
     const { todos } = this.state;
+    const updatedTodos = todos.filter((_todo, todoIndex) => todoIndex !== index);
+
     this.setState({
-      todos: todos.filter((todo, todoIndex) => todoIndex !== index),
+      todos: updatedTodos,
     });
+
+    // Update localStorage after deletion
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
   render() {
-    const { todos, todo } = this.state;
+    let { todos, todo } = this.state;
+    const localTodos = localStorage.getItem("todos");
+    if (localTodos) todos = JSON.parse(localTodos);
 
     return (
       <div className="card">
