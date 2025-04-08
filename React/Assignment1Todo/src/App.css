@@ -45,6 +45,8 @@ li{
   display:flex;
   justify-content: space-between;
   margin-top: 10px;
+  justify-items: center;
+  align-items: center;
 }
 li button{
   width: 20%;
