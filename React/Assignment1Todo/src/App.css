@@ -2,37 +2,42 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 10px;
-  /* text-align: center; */
 }
-
-
 .card {
   display: flex;
   flex-direction: column;
   padding: 10px;
   width: 50%;
 }
-.card *{
-  margin-top: 10px;
-  padding: 5px;
-  /* width: 100%; */
+.add-todo{
+  border: 1px dashed lightgray
 }
-
+h1{
+  margin: 5px 10px;
+  padding: 5px;
+}
 input, textarea{
-  width: 100%;
+  width: 90%;
+  font-size: large;
+  margin: 5px 10px;
+  padding: 5px;
+}
+input::placeholder, textarea::placeholder{
+  font-size: large;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.2em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 40%;
+  width: 30%;
+  margin: 10px;
 }
 button:hover {
   border-color: #646cff;
@@ -41,12 +46,16 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+ul{
+  border: 1px dotted lightgray;
+}
 li{
   display:flex;
   justify-content: space-between;
-  margin-top: 10px;
-  justify-items: center;
   align-items: center;
+  font-size: larger;
+  margin: 1px 10px;
+  padding: 1px;
 }
 li button{
   width: 20%;
